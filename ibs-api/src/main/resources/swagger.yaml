@@ -1,0 +1,14 @@
+openapi: 3.0.1
+info:
+  title: REST-API приложения Картотека
+  version: 1.0.0
+tags:
+  - name: test
+    description: test
+
+paths:
+  /test/test:
+    $ref: "./paths/testTest.yaml"
+
+servers:
+  - url: /api/rest
