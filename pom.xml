@@ -19,6 +19,9 @@
 	<modules>
 		<module>ibs-application</module>
 		<module>ibs-api</module>
+        <module>ibs-db</module>
+		<module>ibs-db-services</module>
+		<module>ibs-repository</module>
 	</modules>
 
 	<properties>
@@ -32,22 +35,34 @@
 		<node-version>v14.16.0</node-version>
 		<npm-version>6.14.11</npm-version>
 		<poi-version>5.0.0</poi-version>
+		<flyway-version>8.4.4</flyway-version>
+		<jackson-datatype-version>2.13.2</jackson-datatype-version>
+		<jackson-datatype-version>2.6.0</jackson-datatype-version>
+
 	</properties>
 
-	<dependencies>
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-openfeign</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-	</dependencies>
 	<dependencyManagement>
 		<dependencies>
+			<dependency>
+				<groupId>ru.ibs</groupId>
+				<artifactId>ibs-api</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>ru.ibs</groupId>
+				<artifactId>ibs-db</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>ru.ibs</groupId>
+				<artifactId>ibs-db-services</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>ru.ibs</groupId>
+				<artifactId>ibs-repository</artifactId>
+				<version>${project.version}</version>
+			</dependency>
 			<dependency>
 				<groupId>org.springframework.cloud</groupId>
 				<artifactId>spring-cloud-dependencies</artifactId>
@@ -95,6 +110,32 @@
 				<groupId>io.springfox</groupId>
 				<artifactId>springfox-bean-validators</artifactId>
 				<version>${springfox-swagger-version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.flywaydb</groupId>
+				<artifactId>flyway-core</artifactId>
+				<version>${flyway-version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.modelmapper</groupId>
+				<artifactId>modelmapper</artifactId>
+				<version>2.3.9</version>
+			</dependency>
+			<dependency>
+				<groupId>com.google.code.gson</groupId>
+				<artifactId>gson</artifactId>
+				<version>2.9.0</version>
+				<scope>compile</scope>
+			</dependency>
+			<dependency>
+				<groupId>com.fasterxml.jackson.datatype</groupId>
+				<artifactId>jackson-datatype-jdk8</artifactId>
+				<version>${jackson-datatype-version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.fasterxml.jackson.datatype</groupId>
+				<artifactId>jackson-datatype-jsr310</artifactId>
+				<version>${jackson-datatype-version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>

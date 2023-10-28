@@ -40,6 +40,28 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>ru.ibs</groupId>
+            <artifactId>ibs-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>ru.ibs</groupId>
+            <artifactId>ibs-db</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>ru.ibs</groupId>
+            <artifactId>ibs-db-services</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>ru.ibs</groupId>
+            <artifactId>ibs-repository</artifactId>
+        </dependency>
     </dependencies>
     <build>
         <resources>

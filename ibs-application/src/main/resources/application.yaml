@@ -1,0 +1,31 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/ibs
+    username: postgres
+    password: postgres
+#  jpa:
+#    properties:
+#      javax:
+#        persistence:
+#          sharedCache:
+#            mode: ALL
+#      hibernate:
+#        order_by.default_null_ordering: last
+#        jdbc:
+#          lob:
+#            non_contextual_creation: true
+#        format_sql: false
+#        cache:
+#          use_second_level_cache: true
+#          use_query_cache: true
+#          region:
+#            factory_class: org.hibernate.cache.jcache.JCacheRegionFactory
+#        javax:
+#          cache:
+#            provider: org.ehcache.jsr107.EhcacheCachingProvider
+#            missing_cache_strategy: create
+#    show-sql: false
+  flyway:
+    baseline-on-migrate: true
+    baseline-version: 0
+    out-of-order: true
