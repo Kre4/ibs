@@ -23,6 +23,7 @@
 		<module>ibs-db-services</module>
 		<module>ibs-repository</module>
 		<module>ibs-api-impl</module>
+		<module>ibs-ui</module>
 	</modules>
 
 	<properties>
@@ -36,14 +37,32 @@
 		<node-version>v14.16.0</node-version>
 		<npm-version>6.14.11</npm-version>
 		<poi-version>5.0.0</poi-version>
+		<npm.build>build</npm.build>
 		<flyway-version>8.4.4</flyway-version>
 		<jackson-datatype-version>2.13.2</jackson-datatype-version>
 		<jackson-datatype-version>2.6.0</jackson-datatype-version>
 
 	</properties>
 
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-openfeign</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
 	<dependencyManagement>
 		<dependencies>
+			<dependency>
+				<groupId>ru.ibs</groupId>
+				<artifactId>ibs-ui</artifactId>
+				<version>${project.version}</version>
+			</dependency>
 			<dependency>
 				<groupId>ru.ibs</groupId>
 				<artifactId>ibs-api-impl</artifactId>
