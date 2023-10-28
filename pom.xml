@@ -22,6 +22,7 @@
         <module>ibs-db</module>
 		<module>ibs-db-services</module>
 		<module>ibs-repository</module>
+		<module>ibs-api-impl</module>
 	</modules>
 
 	<properties>
@@ -43,6 +44,11 @@
 
 	<dependencyManagement>
 		<dependencies>
+			<dependency>
+				<groupId>ru.ibs</groupId>
+				<artifactId>ibs-api-impl</artifactId>
+				<version>${project.version}</version>
+			</dependency>
 			<dependency>
 				<groupId>ru.ibs</groupId>
 				<artifactId>ibs-api</artifactId>
