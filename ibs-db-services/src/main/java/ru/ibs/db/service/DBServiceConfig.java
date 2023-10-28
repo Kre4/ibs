@@ -6,6 +6,6 @@ import org.springframework.context.annotation.ComponentScan;
 
 @EnableAutoConfiguration
 @EnableCaching
-@ComponentScan(basePackages = "ru.vniig.ids")
+@ComponentScan(basePackages = "ru.ibs")
 public class DBServiceConfig {
 }

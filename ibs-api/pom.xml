@@ -95,9 +95,9 @@
                             <generateApis>true</generateApis>
                             <generateApiDocumentation>true</generateApiDocumentation>
                             <generateSupportingFiles>true</generateSupportingFiles>
-                            <apiPackage>ru.vniig.ibs.api.generated.api</apiPackage>
-                            <modelPackage>ru.vniig.ibs.api.generated.model</modelPackage>
-                            <invokerPackage>ru.vniig.ibs.api.generated.invoker</invokerPackage>
+                            <apiPackage>ru.ibs.api.generated.api</apiPackage>
+                            <modelPackage>ru.ibs.api.generated.model</modelPackage>
+                            <invokerPackage>ru.ibs.api.generated.invoker</invokerPackage>
                             <output>${project.build.directory}/generated-sources/</output>
                             <configOptions>
                                 <library>spring-boot</library>
