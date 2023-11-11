@@ -3,12 +3,16 @@ package ru.ibs.entity.book;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import java.util.List;
 
 @Getter
 @Setter
@@ -27,4 +31,16 @@ public class Book {
     private String description;
 
     private String publisher;
+
+    @OneToMany(mappedBy = "book")
+    @Fetch(FetchMode.SUBSELECT)
+    private List<BookAuthor> authors;
+
+    @OneToMany(mappedBy = "book")
+    @Fetch(FetchMode.SUBSELECT)
+    private List<BookGenre> genreList;
+
+    @OneToMany(mappedBy = "book")
+    @Fetch(FetchMode.SUBSELECT)
+    private List<BookCopies> bookCopies;
 }
