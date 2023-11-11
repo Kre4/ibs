@@ -5,12 +5,15 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Import;
 import org.springframework.scheduling.annotation.EnableAsync;
+import ru.ibs.RepositoryConfig;
+import ru.ibs.api.impl.IbsApiConfig;
 import ru.ibs.db.service.DBServiceConfig;
 
 @EnableAsync
 @SpringBootApplication
 @Import({DBServiceConfig.class,
-
+        RepositoryConfig.class,
+        IbsApiConfig.class
 })
 @ComponentScan(basePackages = "ru.ibs")
 public class IbsApplication {
