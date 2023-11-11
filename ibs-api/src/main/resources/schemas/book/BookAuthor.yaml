@@ -1,0 +1,8 @@
+type: object
+properties:
+  id:
+    type: integer
+  book:
+    ref: '../dictionary/Dictionary.yaml'
+  author:
+    ref: '../dictionary/Dictionary.yaml'

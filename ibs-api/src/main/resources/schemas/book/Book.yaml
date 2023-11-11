@@ -1,0 +1,23 @@
+type: object
+properties:
+  id:
+    type: integer
+    format: int64
+  name:
+    type: string
+  year:
+    type: integer
+  description:
+    type: string
+  publisher:
+    type: string
+  authors:
+    type: array
+    items:
+      $ref: '../book/BookAuthor.yaml'
+  genreList:
+    type: array
+    items:
+      $ref: '../dictionary/dictionary.yaml'
+#  ??
+#  copies:

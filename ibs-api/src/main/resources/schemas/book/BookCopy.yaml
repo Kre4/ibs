@@ -1,0 +1,13 @@
+type: object
+properties:
+  id:
+    type: integer
+    format: int64
+  book:
+    $ref: "./Book.yaml"
+  status:
+    type: string
+    enum:
+      - IN_STOCK
+      - BOOKED
+      - TAKEN
