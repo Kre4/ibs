@@ -12,6 +12,11 @@ create table status
     system_name text not null unique
 );
 
+insert into status (name, system_name) VALUES
+('В наличии', 'IN_STOCK'),
+('Забронировано', 'BOOKED'),
+('На руках', 'TAKEN');
+
 
 create table author
 (
