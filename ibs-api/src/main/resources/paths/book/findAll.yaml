@@ -1,0 +1,15 @@
+get:
+  tags:
+    - sensor
+  summary: Получение списка всех книг
+  description: Получение списка всех книг
+  operationId: findAll
+  responses:
+    200:
+      description: Список всех книг
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: "../../schemas/book/Book.yaml"

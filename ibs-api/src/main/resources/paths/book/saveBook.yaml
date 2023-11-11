@@ -1,0 +1,19 @@
+put:
+  tags:
+    - book
+  summary: Сохранение данных книги
+  description: Сохранение данных книги
+  operationId: saveBook
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: "../../schemas/book/Book.yaml"
+    required: true
+  responses:
+    "200":
+      description: Сохраненный результат
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/book/Book.yaml"
