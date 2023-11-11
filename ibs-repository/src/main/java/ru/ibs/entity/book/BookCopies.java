@@ -1,11 +1,11 @@
-package ru.ibs.entity;
+package ru.ibs.entity.book;
 
 import lombok.Getter;
 import lombok.Setter;
+import ru.ibs.entity.Status;
+import ru.ibs.entity.book.Book;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -13,19 +13,18 @@ import javax.persistence.Table;
 
 @Getter
 @Setter
-@Table(name = "book_genre")
+@Table(name = "books_copies")
 @Entity
-public class BookGenre {
+public class BookCopies {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
     @JoinColumn(name = "book_id")
     @ManyToOne
     private Book book;
 
-    @JoinColumn(name = "genre_id")
+    @JoinColumn(name = "status_id")
     @ManyToOne
-    private Genre genre;
+    private Status status;
 }

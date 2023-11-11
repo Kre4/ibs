@@ -1,4 +1,4 @@
-package ru.ibs.entity;
+package ru.ibs.entity.book;
 
 
 import lombok.Getter;

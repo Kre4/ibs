@@ -1,7 +1,9 @@
-package ru.ibs.entity;
+package ru.ibs.entity.book;
 
 import lombok.Getter;
 import lombok.Setter;
+import ru.ibs.entity.Author;
+import ru.ibs.entity.book.Book;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
