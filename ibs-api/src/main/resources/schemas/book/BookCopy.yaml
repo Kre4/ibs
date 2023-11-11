@@ -4,7 +4,7 @@ properties:
     type: integer
     format: int64
   book:
-    $ref: "./Book.yaml"
+    $ref: "../dictionary/dictionary.yaml"
   status:
     type: string
     enum:

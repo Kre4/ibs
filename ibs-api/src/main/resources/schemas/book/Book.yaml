@@ -14,10 +14,12 @@ properties:
   authors:
     type: array
     items:
-      $ref: '../book/BookAuthor.yaml'
+      $ref: "./BookAuthor.yaml"
   genreList:
     type: array
     items:
-      $ref: '../dictionary/dictionary.yaml'
-#  ??
-#  copies:
+      $ref: "../dictionary/dictionary.yaml"
+  copies:
+    type: array
+    items:
+      $ref: "./BookCopy.yaml"
