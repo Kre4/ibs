@@ -6,7 +6,7 @@ export const SearchingRoutes: Routes = [
     path: '',
     children: [{
       path: 'search',
-      component:SearchingComponent
+      component: SearchingComponent
     }]
   }
 ]

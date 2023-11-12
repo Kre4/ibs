@@ -5,7 +5,7 @@ import {AppRoutes} from './app.routing';
 import {AppComponent} from './app.component';
 import {MainPanelComponent} from './main-panel/main-panel.component';
 import {CommonModule} from "@angular/common";
-import {RouterModule} from "@angular/router";
+import {RouterModule, RouterOutlet} from "@angular/router";
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatTabsModule} from "@angular/material/tabs";
 import {MatIconModule} from "@angular/material/icon";
@@ -27,7 +27,8 @@ import {HttpClientModule} from "@angular/common/http";
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
-    FormsModule
+    FormsModule,
+    RouterOutlet
   ],
   declarations: [
     MainPanelComponent,
@@ -44,7 +45,9 @@ export class MaterialModule {
     BrowserModule,
     BrowserAnimationsModule,
     CommonModule,
-    RouterModule.forRoot(AppRoutes, {})
+    RouterModule.forRoot(AppRoutes, {
+      useHash: false
+    })
   ],
   declarations: [
     AppComponent

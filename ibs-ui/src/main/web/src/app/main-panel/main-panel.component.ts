@@ -1,4 +1,5 @@
 import {AfterViewInit, Component, OnDestroy, OnInit} from '@angular/core';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-main-panel',
@@ -6,6 +7,9 @@ import {AfterViewInit, Component, OnDestroy, OnInit} from '@angular/core';
   styleUrls: ['./main-panel.component.css']
 })
 export class MainPanelComponent implements OnInit, AfterViewInit, OnDestroy{
+
+  constructor(private router: Router) {
+  }
   ngAfterViewInit(): void {
   }
 
