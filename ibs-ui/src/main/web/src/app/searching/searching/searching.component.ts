@@ -13,6 +13,7 @@ export class SearchingComponent implements OnInit{
   constructor(private bookService: BookService){
   }
   ngOnInit(): void {
+    console.log("searching")
   }
 
   find(){

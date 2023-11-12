@@ -11,7 +11,6 @@ import {MatTabsModule} from "@angular/material/tabs";
 import {MatIconModule} from "@angular/material/icon";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatButtonModule} from "@angular/material/button";
-import {SearchingComponent} from "./searching/searching/searching.component";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {FormsModule} from "@angular/forms";
@@ -22,7 +21,6 @@ import {HttpClientModule} from "@angular/common/http";
   providers: [],
   imports: [
     CommonModule,
-    BrowserAnimationsModule,
     MatTabsModule,
     MatIconModule,
     MatToolbarModule,
@@ -33,7 +31,6 @@ import {HttpClientModule} from "@angular/common/http";
   ],
   declarations: [
     MainPanelComponent,
-    SearchingComponent
   ]
 })
 export class MaterialModule {
@@ -45,6 +42,7 @@ export class MaterialModule {
     HttpClientModule,
     MaterialModule,
     BrowserModule,
+    BrowserAnimationsModule,
     CommonModule,
     RouterModule.forRoot(AppRoutes, {})
   ],

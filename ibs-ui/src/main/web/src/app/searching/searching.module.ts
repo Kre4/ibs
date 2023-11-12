@@ -12,18 +12,18 @@ import {MatButtonModule} from "@angular/material/button";
 
 
 // TODO удалить его и рутес
-// @NgModule({
-//   imports: [
-//     CommonModule,
-//     RouterModule.forChild(SearchingRoutes),
-//     MaterialModule,
-//     FormsModule,
-//     MatIconModule,
-//     MatFormFieldModule,
-//     MatInputModule,
-//     MatButtonModule
-//   ],
-//   declarations: [SearchingComponent]
-// })
-// export class SearchingModule {
-// }
+@NgModule({
+  imports: [
+    CommonModule,
+    RouterModule.forChild(SearchingRoutes),
+    MaterialModule,
+    FormsModule,
+    MatIconModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule
+  ],
+  declarations: [SearchingComponent]
+})
+export class SearchingModule {
+}

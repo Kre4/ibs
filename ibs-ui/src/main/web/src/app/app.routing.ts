@@ -1,6 +1,5 @@
 import {Routes} from '@angular/router';
 import {MainPanelComponent} from "./main-panel/main-panel.component";
-import {SearchingComponent} from "./searching/searching/searching.component";
 
 export const AppRoutes: Routes = [
   {
@@ -11,8 +10,11 @@ export const AppRoutes: Routes = [
     children: [
       {
         path: '',
-        component: SearchingComponent
-        //loadChildren: () => import('./searching/searching.module').then(m => m.SearchingModule)
+        loadChildren: () => import('./searching/searching.module').then(m => m.SearchingModule)
+      },
+      {
+        path: 'admin',
+        loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)
       }
     ]
   }
