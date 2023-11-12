@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {BookService} from "../../generated";
+import {finalize} from "rxjs";
 
 @Component({
   selector: 'app-searching',
@@ -17,6 +18,11 @@ export class SearchingComponent implements OnInit{
   }
 
   find(){
+    this.bookService.findBooksBySearch(this.search)
+      //.pipe() TODO add loading animation
+      .subscribe(data => {
+        console.log(this.search)
+      })
     //this.bookService.find();
   }
 

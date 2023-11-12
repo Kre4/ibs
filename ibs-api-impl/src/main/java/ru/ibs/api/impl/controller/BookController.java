@@ -36,6 +36,11 @@ public class BookController implements BookApi {
     }
 
     @Override
+    public ResponseEntity<List<Book>> findBooksBySearch(String search) {
+        return ResponseEntity.ok(mapper.mapList(bookService.findAllBySearch(search), Book.class));
+    }
+
+    @Override
     public ResponseEntity<Book> getBook(Long id) {
         return ResponseEntity.ok(mapper.map(bookService.findById(id), Book.class));
     }

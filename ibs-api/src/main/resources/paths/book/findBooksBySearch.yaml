@@ -3,10 +3,16 @@ get:
     - book
   summary: Получение списка всех книг
   description: Получение списка всех книг
-  operationId: findAll
+  operationId: findBooksBySearch
+  parameters:
+    - name: search
+      in: query
+      description: строка поиска
+      schema:
+        type: string
   responses:
     200:
-      description: Список всех книг
+      description: Список книг удовлевторяющих условию поиска
       content:
         application/json:
           schema:

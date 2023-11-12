@@ -21,5 +21,7 @@ paths:
     $ref: "./paths/book/saveBook.yaml"
   /book/delete:
     $ref: "./paths/book/deleteBook.yaml"
+  /book/list/search:
+    $ref: "./paths/book/findBooksBySearch.yaml"
 
 
