@@ -1,0 +1,25 @@
+<mat-table class="lessons-table" multiTemplateDataRows [dataSource]="datasource">
+
+  <ng-container matColumnDef="id">
+    <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
+    <mat-cell *matCellDef="let book">{{book.id}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef>Название</mat-header-cell>
+    <mat-cell *matCellDef="let book">{{book.name}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="authors">
+    <mat-header-cell *matHeaderCellDef>Автор</mat-header-cell>
+    <mat-cell *matCellDef="let book">{{getAuthorsString(book.authors)}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="year">
+    <mat-header-cell *matHeaderCellDef>Название</mat-header-cell>
+    <mat-cell *matCellDef="let book">{{book.year}}</mat-cell>
+  </ng-container>
+
+</mat-table>
+
+<div>Я бук лист </div>

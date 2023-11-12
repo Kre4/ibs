@@ -14,7 +14,7 @@ properties:
   authors:
     type: array
     items:
-      $ref: "./BookAuthor.yaml"
+      $ref: "../author/Author.yaml"
   genreList:
     type: array
     items:
