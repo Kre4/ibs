@@ -1,10 +1,22 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {BookService} from "../../generated";
 
 @Component({
   selector: 'app-searching',
   templateUrl: './searching.component.html',
   styleUrls: ['./searching.component.css']
 })
-export class SearchingComponent {
+export class SearchingComponent implements OnInit{
+
+  search = "";
+
+  constructor(private bookService: BookService){
+  }
+  ngOnInit(): void {
+  }
+
+  find(){
+    //this.bookService.find();
+  }
 
 }

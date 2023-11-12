@@ -1,0 +1,10 @@
+.searching-form {
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.form-size {
+  width: 90%;
+}
