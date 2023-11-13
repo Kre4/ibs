@@ -14,6 +14,7 @@ import {MatMenuModule} from "@angular/material/menu";
 import {MatIconModule} from "@angular/material/icon";
 import {MatCardModule} from "@angular/material/card";
 import {MatToolbarModule} from "@angular/material/toolbar";
+import {FormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import {MatToolbarModule} from "@angular/material/toolbar";
     MatMenuModule,
     MatIconModule,
     MatCardModule,
-    MatToolbarModule
+    MatToolbarModule,
+    FormsModule
   ]
 })
 export class AdminModule { }

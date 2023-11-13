@@ -13,6 +13,8 @@ export class BookListComponent implements OnInit{
 
   displayedColumns = ["id", "authors", "name", "year", "publisher", "buttons"];
 
+  searchId = '';
+
   constructor(private bookService: BookService){
     this.datasource = new BookDatasource(this.bookService);
   }
@@ -48,4 +50,17 @@ export class BookListComponent implements OnInit{
 
   add(){
   }
+
+  search(){
+    this.bookService.getBook(Number(this.searchId)).subscribe(
+      value => {
+        if (value) {
+          //рутер на едит
+        } else {
+          // окно ошибки, что типо не найдено
+        }
+      }
+    )
+
   }
+}

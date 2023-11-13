@@ -1,9 +1,10 @@
 <div class="row id-searching">
   <mat-form-field appearance="outline" class="id-searching-input">
 <!-- TODO запретить ввод запятых/точек   /-->
-    <input type="number" autocomplete="off" matInput placeholder="Поиск по ID" #input>
+    <input type="number" autocomplete="off" matInput placeholder="Поиск по ID" #input [ngModel]="searchId">
   </mat-form-field>
-  <button mat-flat-button class="btn btn-sm btn-outline-secondary button-clear id-searching-button">
+  <button mat-flat-button class="btn btn-sm btn-outline-secondary button-clear id-searching-button"
+    (click)="search()">
     Поиск
   </button>
 </div>
