@@ -9,7 +9,7 @@
       <mat-form-field appearance="outline">
         <input type="number" matInput formControlName="id" placeholder="ID" readonly>
       </mat-form-field>
-      <mat-form-field>
+      <mat-form-field appearance="outline">
         <input matInput formControlName="name" placeholder="Название">
       </mat-form-field>
 
@@ -17,52 +17,20 @@
         <input matInput formControlName="year" placeholder="Год">
       </mat-form-field>
 
-      <mat-form-field>
+      <mat-form-field appearance="outline">
         <input matInput formControlName="description" placeholder="Описание">
       </mat-form-field>
 
-      <mat-form-field>
-        <input matInput formControlName="publisher" placeholder="Описание">
+      <mat-form-field appearance="outline">
+        <input matInput formControlName="publisher" placeholder="Издатель">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <input type="number" matInput formControlName="authors" placeholder="ID автора">
       </mat-form-field>
 
     </form>
   </div>
-  <!--  <form autocomplete="off" *ngIf="formGroup" [formGroup]="formGroup" novalidate>-->
-  <!--      <mat-form-field *ngIf="book.id">-->
-  <!--        <input type="number" matInput formControlName="id" placeholder="ID" readonly [value]="'abboboaob'"/>-->
-  <!--      </mat-form-field>-->
-
-  <!--    <mat-form-field>-->
-  <!--      <input matInput formControlName="name" placeholder="Название"/>-->
-  <!--&lt;!&ndash;      <mat-error *ngIf="formGroup.controls['name'].invalid && !formGroup.controls['name'].touched">&ndash;&gt;-->
-  <!--&lt;!&ndash;        Обязательно для заполнения&ndash;&gt;-->
-  <!--&lt;!&ndash;      </mat-error>&ndash;&gt;-->
-  <!--    </mat-form-field>-->
-
-  <!--&lt;!&ndash;    TODO добавить автора нормально &ndash;&gt;-->
-  <!--&lt;!&ndash;    <mat-form-field>&ndash;&gt;-->
-  <!--&lt;!&ndash;      <input matInput formControlName="author" placeholder="Название"/>&ndash;&gt;-->
-  <!--&lt;!&ndash;      <mat-error *ngIf="formGroup.controls['name'].invalid && !formGroup.controls['name'].touched">&ndash;&gt;-->
-  <!--&lt;!&ndash;        Обязательно для заполнения&ndash;&gt;-->
-  <!--&lt;!&ndash;      </mat-error>&ndash;&gt;-->
-  <!--&lt;!&ndash;    </mat-form-field>&ndash;&gt;-->
-
-  <!--      <mat-form-field>-->
-  <!--        <input type="number" matInput formControlName="year" placeholder="Год"/>-->
-  <!--      </mat-form-field>-->
-
-  <!--    <mat-form-field>-->
-  <!--      <input matInput formControlName="description" placeholder="Описание"/>-->
-  <!--    </mat-form-field>-->
-
-  <!--    <mat-form-field>-->
-  <!--      <input matInput formControlName="publisher" placeholder="Описание"/>-->
-  <!--    </mat-form-field>-->
-
-  <!--    TODO add copies, genre-->
-
-
-  <!--  </form>-->
   <div class="btn-toolbar justify-content-sm-between" role="toolbar">
     <div class="btn-group">
       <button mat-raised-button class="btn btn-sm btn-primary" [disabled]="!formGroup.valid"
