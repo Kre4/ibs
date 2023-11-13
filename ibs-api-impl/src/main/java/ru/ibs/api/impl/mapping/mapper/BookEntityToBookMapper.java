@@ -2,9 +2,6 @@ package ru.ibs.api.impl.mapping.mapper;
 
 import org.modelmapper.PropertyMap;
 import ru.ibs.entity.book.Book;
-import ru.ibs.entity.book.BookAuthor;
-
-import java.util.stream.Collectors;
 
 public class BookEntityToBookMapper extends PropertyMap<Book, ru.ibs.api.generated.model.Book> {
     @Override
@@ -14,8 +11,7 @@ public class BookEntityToBookMapper extends PropertyMap<Book, ru.ibs.api.generat
         map(source.getYear(), destination.getYear());
         map(source.getDescription(), destination.getDescription());
         map(source.getPublisher(), destination.getPublisher());
-        map(source.getAuthors().stream().map(BookAuthor::getAuthor).collect(Collectors.toList()),
-                destination.getAuthors());
+        using(new BookAuthorListToAuthorListConverter()).map(source.getAuthors(), destination.getAuthors());
         //TODO copies, genre
 
     }

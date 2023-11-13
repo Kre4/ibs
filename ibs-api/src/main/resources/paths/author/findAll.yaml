@@ -1,0 +1,15 @@
+get:
+  tags:
+    - author
+  summary: Получение списка всех авторов
+  description: Получение списка всех авторов
+  operationId: findAll
+  responses:
+    200:
+      description: Список всех авторов
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: "../../schemas/author/Author.yaml"

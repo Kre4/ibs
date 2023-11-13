@@ -5,7 +5,7 @@ import ru.ibs.entity.Author;
 import ru.ibs.repository.AuthorRepository;
 
 @Service
-public class AuthorService extends JpaService<Author, Integer> {
+public class AuthorService extends JpaService<Author, Long> {
 
     private final AuthorRepository repository;
 

@@ -1,0 +1,19 @@
+put:
+  tags:
+    - author
+  summary: Сохранение автора
+  description: Сохранение автора
+  operationId: saveAuthor
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: "../../schemas/author/Author.yaml"
+    required: true
+  responses:
+    "200":
+      description: Сохраненный результат
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/author/Author.yaml"

@@ -1,0 +1,15 @@
+get:
+  tags:
+    - author
+  summary: Получение автора
+  description: Получение автора
+  operationId: getAuthor
+  parameters:
+    - $ref: '../../parameters/EntityIdPath.yaml'
+  responses:
+    "200":
+      description: Датчик
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/author/Author.yaml"

@@ -33,4 +33,13 @@ export class BookDatasource extends DataSource<Book>{
     })
   }
 
+  loadBySearch(search: string) {
+    this.loadingSubject.next(true);
+    this.bookService.findBooksBySearch(search)
+      .pipe(
+        catchError(() => of([])),
+        finalize(() => this.loadingSubject.next(false))
+      ).subscribe(value => this.notifySubject.next(value))
+  }
+
 }

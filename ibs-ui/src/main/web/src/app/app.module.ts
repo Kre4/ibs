@@ -4,7 +4,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {AppRoutes} from './app.routing';
 import {AppComponent} from './app.component';
 import {MainPanelComponent} from './main-panel/main-panel.component';
-import {CommonModule} from "@angular/common";
+import {CommonModule, HashLocationStrategy, LocationStrategy} from "@angular/common";
 import {RouterModule, RouterOutlet} from "@angular/router";
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatTabsModule} from "@angular/material/tabs";
@@ -54,7 +54,9 @@ export class MaterialModule {
   declarations: [
     AppComponent
   ],
-  providers: [],
+  providers: [
+    {provide: LocationStrategy, useClass: HashLocationStrategy},
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

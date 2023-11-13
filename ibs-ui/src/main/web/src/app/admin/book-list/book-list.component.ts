@@ -25,6 +25,7 @@ export class BookListComponent implements OnInit{
   }
 
   getAuthorsString( authors: Author[] ): any {
+    console.log(authors);
     if (authors.length != null) {
       let str = "";
       authors.forEach(author => {
