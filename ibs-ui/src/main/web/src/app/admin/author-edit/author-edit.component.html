@@ -14,7 +14,7 @@
         <input matInput formControlName="name" placeholder="Имя">
       </mat-form-field>
 
-      <mat-form-field >
+      <mat-form-field>
         <input matInput [matDatepicker]="picker" appMaskDate
                formControlName="birthDate" placeholder="Дата рождения">
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
@@ -34,7 +34,6 @@
     <button mat-raised-button class="btn btn-sm btn-success" type="button"
             (click)="back()">Назад
     </button>
-
     <button mat-raised-button class="btn btn-sm btn-primary" [disabled]="!formGroup.valid"
             (click)="save(formGroup.value)">Сохранить
     </button>
