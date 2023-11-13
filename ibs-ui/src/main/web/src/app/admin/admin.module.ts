@@ -18,24 +18,27 @@ import {FormsModule} from "@angular/forms";
 
 
 @NgModule({
-  declarations: [
-    BookEditComponent,
-    AdminComponent,
-    BookListComponent
-  ],
-  imports: [
-    CommonModule,
-    RouterModule.forChild(AdminRoutes),
-    MatTableModule,
-    MatButtonModule,
-    MatInputModule,
-    MatProgressSpinnerModule,
-    MatSortModule,
-    MatMenuModule,
-    MatIconModule,
-    MatCardModule,
-    MatToolbarModule,
-    FormsModule
-  ]
+    declarations: [
+        BookEditComponent,
+        AdminComponent,
+        BookListComponent
+    ],
+    exports: [
+        BookListComponent
+    ],
+    imports: [
+        CommonModule,
+        RouterModule.forChild(AdminRoutes),
+        MatTableModule,
+        MatButtonModule,
+        MatInputModule,
+        MatProgressSpinnerModule,
+        MatSortModule,
+        MatMenuModule,
+        MatIconModule,
+        MatCardModule,
+        MatToolbarModule,
+        FormsModule
+    ]
 })
 export class AdminModule { }
