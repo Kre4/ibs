@@ -13,6 +13,7 @@ import org.springframework.stereotype.Component;
 import ru.ibs.api.impl.mapping.mapper.AuthorEntityToAuthorMapper;
 import ru.ibs.api.impl.mapping.mapper.BookAuthorListToAuthorListConverter;
 import ru.ibs.api.impl.mapping.mapper.BookEntityToBookMapper;
+import ru.ibs.api.impl.mapping.mapper.BookToBookEntityMapper;
 
 import javax.annotation.PostConstruct;
 import java.io.IOException;
@@ -45,6 +46,7 @@ public class MapperImpl implements Mapper {
         modelMapper.addConverter(new BookAuthorListToAuthorListConverter());
         modelMapper.addMappings(new BookEntityToBookMapper());
         modelMapper.addMappings(new AuthorEntityToAuthorMapper());
+        modelMapper.addMappings(new BookToBookEntityMapper());
         modelMapper.getConfiguration().setAmbiguityIgnored(true);
     }
 

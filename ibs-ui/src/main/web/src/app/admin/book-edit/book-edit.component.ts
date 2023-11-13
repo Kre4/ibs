@@ -1,8 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {BehaviorSubject} from "rxjs";
+ import {BehaviorSubject, finalize} from "rxjs";
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {ActivatedRoute, Router} from "@angular/router";
-import {Book, BookService} from "../../generated";
+import {AuthorService, Book, BookService} from "../../generated";
+import {getTreeNoValidDataSourceError} from "@angular/cdk/tree";
 
 @Component({
   selector: 'app-book-edit',
@@ -20,6 +21,7 @@ export class BookEditComponent implements OnInit{
 
   constructor(private route: ActivatedRoute,
               private router: Router,
+              private authorService: AuthorService,
               private bookService: BookService,
               private formBuilder: FormBuilder) {
 
@@ -38,6 +40,7 @@ export class BookEditComponent implements OnInit{
   loadData(){
     this.bookService.getBook(this.bookId).subscribe(value => {
       this.book = value;
+      console.log(value);
       this.builtFrom();
     });
   }
@@ -47,13 +50,26 @@ export class BookEditComponent implements OnInit{
       name: [this.book?.name],
       year: [this.book?.year],
       description: [this.book?.description],
-      publisher: [this.book?.publisher]
+      publisher: [this.book?.publisher],
+      authors: [this.book?.authors ? this.book?.authors[0].id : 0]
       // todo add authors, genre, copies
     })
 
   }
   back(){}
 
-  save(value: any){}
+  save(value: any){
+    const saveObj = structuredClone(value);
+
+    saveObj.authors = [{id: saveObj.authors}];
+    saveObj.genreList = [];
+    saveObj.copies = [];
+    this.loading.next(true);
+    this.bookService.saveBook(saveObj as Book)
+      .pipe(finalize(() => this.loading.next(false)))
+      .subscribe(data => {
+        console.log("ok");
+      })
+  }
 
 }

@@ -37,6 +37,7 @@ export class BookListComponent implements OnInit{
 }
 
   edit(item: any){
+    this.router.navigate(["/admin/book/edit/" + item.id]);
   }
 
   delete(item: any) {

@@ -1,6 +1,9 @@
 package ru.ibs.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import ru.ibs.entity.book.Book;
 
@@ -18,6 +21,9 @@ import java.util.Set;
 @Setter
 @Table(name = "author")
 @Entity
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class Author {
 
     @Id
