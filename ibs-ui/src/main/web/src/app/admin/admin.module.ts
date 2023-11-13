@@ -4,7 +4,7 @@ import {BookEditComponent} from './book-edit/book-edit.component';
 import {RouterModule} from "@angular/router";
 import {AdminRoutes} from "./admin.routing";
 import {AdminComponent} from './admin/admin.component';
-import { BookListComponent } from './book-list/book-list.component';
+import {BookListComponent} from './book-list/book-list.component';
 import {MatTableModule} from "@angular/material/table";
 import {MatButtonModule} from "@angular/material/button";
 import {MatInputModule} from "@angular/material/input";
@@ -16,9 +16,9 @@ import {MatCardModule} from "@angular/material/card";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatTabsModule} from "@angular/material/tabs";
-import { AuthorListComponent } from './author-list/author-list.component';
-import { AuthorEditComponent } from './author-edit/author-edit.component';
-import { ResourceTabsComponent } from './resource-tabs/resource-tabs.component';
+import {AuthorListComponent} from './author-list/author-list.component';
+import {AuthorEditComponent} from './author-edit/author-edit.component';
+import {ResourceTabsComponent} from './resource-tabs/resource-tabs.component';
 
 
 @NgModule({
@@ -28,45 +28,27 @@ import { ResourceTabsComponent } from './resource-tabs/resource-tabs.component';
     BookListComponent,
     AuthorListComponent,
     AuthorEditComponent,
-    ResourceTabsComponent
+    ResourceTabsComponent,
   ],
-    imports: [
-        CommonModule,
-        RouterModule.forChild(AdminRoutes),
-        MatTableModule,
-        MatButtonModule,
-        MatInputModule,
-        MatProgressSpinnerModule,
-        MatSortModule,
-        MatMenuModule,
-        MatIconModule,
-        MatCardModule,
-        MatToolbarModule,
-        FormsModule,
-        MatTabsModule,
-        ReactiveFormsModule
-    ]
-    declarations: [
-        BookEditComponent,
-        AdminComponent,
-        BookListComponent
-    ],
-    exports: [
-        BookListComponent
-    ],
-    imports: [
-        CommonModule,
-        RouterModule.forChild(AdminRoutes),
-        MatTableModule,
-        MatButtonModule,
-        MatInputModule,
-        MatProgressSpinnerModule,
-        MatSortModule,
-        MatMenuModule,
-        MatIconModule,
-        MatCardModule,
-        MatToolbarModule,
-        FormsModule
-    ]
+  imports: [
+    CommonModule,
+    RouterModule.forChild(AdminRoutes),
+    MatTableModule,
+    MatButtonModule,
+    MatInputModule,
+    MatProgressSpinnerModule,
+    MatSortModule,
+    MatMenuModule,
+    MatIconModule,
+    MatCardModule,
+    MatToolbarModule,
+    FormsModule,
+    MatTabsModule,
+    ReactiveFormsModule
+  ],
+  exports: [
+    BookListComponent
+  ],
 })
-export class AdminModule { }
+export class AdminModule {
+}
