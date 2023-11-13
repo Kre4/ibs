@@ -3,6 +3,7 @@ import {BehaviorSubject} from "rxjs";
 import {Author, AuthorService} from "../../generated";
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {ActivatedRoute, Router} from "@angular/router";
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-author-edit',
@@ -53,13 +54,22 @@ export class AuthorEditComponent implements OnInit{
   }
 
   save(value: any){
-    let saveObj: Author = {};
-    saveObj = structuredClone(value);
+    const saveObj: Author = structuredClone(value);
+    saveObj.birthDate = this.formatForRest(saveObj.birthDate);
+    saveObj.deathDate = this.formatForRest(saveObj.deathDate);
+    console.log(saveObj);
     this.authorService.saveAuthor(saveObj)
       // .pipe()
       .subscribe(value => {
         console.log(value);
       })
+  }
+
+  formatForRest(date: any): string {
+    if (date) {
+      return moment(date).format('YYYY-MM-DD');
+    }
+    return null;
   }
 
 }
