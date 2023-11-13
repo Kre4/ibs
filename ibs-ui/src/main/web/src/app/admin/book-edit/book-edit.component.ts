@@ -7,7 +7,6 @@ import {Component, OnInit} from '@angular/core';
 })
 export class BookEditComponent implements OnInit{
   ngOnInit(): void {
-    console.log("book edit")
   }
 
 }

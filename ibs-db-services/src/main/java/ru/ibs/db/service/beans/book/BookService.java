@@ -23,22 +23,25 @@ public class BookService extends JpaService<Book, Long> {
     }
 
     public List<Book> findAllBySearch(String search) {
+        if (search.length() > 256)
+            throw new IllegalArgumentException("Слишком длинное название");
         return this.repository.findAll(buildSpecification(search));
     }
 
     private Specification<Book> buildSpecification(String search) {
-        Specification<Book> specification = Specification.where(null);
-        //TODO доделать
+        Specification<Book> specification = BookSpecification.bookName(search).or(BookSpecification.authorName(search));
+        String firstSubstring;
+        String secondSubstring;
         for (int i = 0; i < search.length(); ++i) {
             if (search.charAt(i) == ' ') {
-                String firstSubstring = search.substring(0, i);
-                String secondSubstring = search.substring(i);
+                firstSubstring = search.substring(0, i);
+                secondSubstring = search.substring(i + 1);
                 specification = specification.or(
-                        specification.and(BookSpecification.authorName(firstSubstring))
-                                .and(BookSpecification.bookName(secondSubstring))
+                        specification.or(BookSpecification.authorName(firstSubstring))
+                                .or(BookSpecification.bookName(secondSubstring))
                 ).or(
-                        specification.and(BookSpecification.bookName(firstSubstring))
-                                .and(BookSpecification.authorName(secondSubstring))
+                        specification.or(BookSpecification.bookName(firstSubstring))
+                                .or(BookSpecification.authorName(secondSubstring))
                 );
             }
         }
