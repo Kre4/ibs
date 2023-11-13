@@ -41,6 +41,7 @@ public class MapperImpl implements Mapper {
     @PostConstruct
     public void init() {
         modelMapper = new ModelMapper();
+
         modelMapper.addConverter(new BookAuthorListToAuthorListConverter());
         modelMapper.addMappings(new BookEntityToBookMapper());
         modelMapper.addMappings(new AuthorEntityToAuthorMapper());

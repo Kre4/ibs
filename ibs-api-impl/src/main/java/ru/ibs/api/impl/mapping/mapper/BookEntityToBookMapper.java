@@ -11,7 +11,7 @@ public class BookEntityToBookMapper extends PropertyMap<Book, ru.ibs.api.generat
         map(source.getYear(), destination.getYear());
         map(source.getDescription(), destination.getDescription());
         map(source.getPublisher(), destination.getPublisher());
-        map(source.getAuthors(), destination.getAuthors());
+        using(new BookAuthorListToAuthorListConverter()).map(source.getAuthors(), destination.getAuthors());
         //TODO copies, genre
 
     }
