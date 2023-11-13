@@ -35,6 +35,7 @@ public class Book {
     private String publisher;
 
     @OneToMany(mappedBy = "book")
+    @Fetch(FetchMode.SUBSELECT)
     private List<BookAuthor> authors;
 
     @OneToMany(mappedBy = "book")

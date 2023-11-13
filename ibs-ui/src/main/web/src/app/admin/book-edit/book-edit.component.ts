@@ -40,6 +40,7 @@ export class BookEditComponent implements OnInit{
   loadData(){
     this.bookService.getBook(this.bookId).subscribe(value => {
       this.book = value;
+      console.log(value);
       this.builtFrom();
     });
   }
@@ -50,7 +51,7 @@ export class BookEditComponent implements OnInit{
       year: [this.book?.year],
       description: [this.book?.description],
       publisher: [this.book?.publisher],
-      authors: [this.book?.authors[0].id]
+      authors: [this.book?.authors ? this.book?.authors[0].id : 0]
       // todo add authors, genre, copies
     })
 
