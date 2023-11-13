@@ -56,7 +56,9 @@ export class BookEditComponent implements OnInit{
     })
 
   }
-  back(){}
+  back(){
+    this.router.navigate(["/admin/"]);
+  }
 
   save(value: any){
     const saveObj = structuredClone(value);

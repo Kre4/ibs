@@ -1,3 +1,5 @@
-.book-edit-card{
+.display-form{
+  display: grid !important;
   margin: 1%;
 }
+
