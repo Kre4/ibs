@@ -5,6 +5,10 @@ info:
 tags:
   - name: test
     description: test
+  - name: book
+    description: API работы с книгами
+  - name: author
+    description: API работы с авторами
 
 servers:
   - url: /api/rest
@@ -23,5 +27,14 @@ paths:
     $ref: "./paths/book/deleteBook.yaml"
   /book/list/search:
     $ref: "./paths/book/findBooksBySearch.yaml"
+
+  /author/{id}:
+    $ref: "./paths/author/getById.yaml"
+  /author/list:
+    $ref: "./paths/author/findAll.yaml"
+  /author/save:
+    $ref: "./paths/author/saveAuthor.yaml"
+  /author/delete:
+    $ref: "./paths/author/deleteAuthor.yaml"
 
 

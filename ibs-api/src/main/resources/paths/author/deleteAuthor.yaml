@@ -1,0 +1,11 @@
+delete:
+  tags:
+    - author
+  summary: Удаление автора
+  description: Удаление автора
+  operationId: deleteAuthor
+  parameters:
+    - $ref: '../../parameters/EntityIdPath.yaml'
+  responses:
+    "200":
+      description: Удалено
