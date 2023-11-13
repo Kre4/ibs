@@ -1,7 +1,8 @@
 import {Routes} from "@angular/router";
 import {BookEditComponent} from "./book-edit/book-edit.component";
 import {AdminComponent} from "./admin/admin.component";
-import {BookListComponent} from "./book-list/book-list.component";
+import {AuthorEditComponent} from "./author-edit/author-edit.component";
+import {ResourceTabsComponent} from "./resource-tabs/resource-tabs.component";
 
 export const AdminRoutes: Routes = [
   {
@@ -9,12 +10,24 @@ export const AdminRoutes: Routes = [
     component: AdminComponent,
     children: [
       {
+        path: '',
+        component: ResourceTabsComponent
+      },
+      {
       path: 'book/edit/:id',
       component: BookEditComponent
       },
       {
-        path: 'book/list',
-        component: BookListComponent
+        path: 'book/new',
+        component: BookEditComponent
+      },
+      {
+        path: 'author/edit/:id',
+        component: AuthorEditComponent
+      },
+      {
+        path: 'author/new',
+        component: AuthorEditComponent
       }]
   }
 ]

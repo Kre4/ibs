@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {BookDatasource} from "./book.datasource";
 import {Author, BookService} from "../../generated";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-book-list',
@@ -15,15 +16,12 @@ export class BookListComponent implements OnInit{
 
   searchId = '';
 
-  constructor(private bookService: BookService){
+  constructor(private bookService: BookService,
+              private router: Router){
     this.datasource = new BookDatasource(this.bookService);
   }
   ngOnInit(): void {
-    this.loadData();
-  }
-
-  ngAfterViewInit(): void {
-
+    this.datasource.loadBooks();
   }
 
   getAuthorsString( authors: Author[] ): any {
@@ -39,10 +37,6 @@ export class BookListComponent implements OnInit{
     }
 }
 
-  private loadData(){
-    this.datasource.loadBooks();
-  }
-
   edit(item: any){
   }
 
@@ -50,6 +44,7 @@ export class BookListComponent implements OnInit{
   }
 
   add(){
+    this.router.navigate(["/admin/book/new"]);
   }
 
   search(){
@@ -62,6 +57,5 @@ export class BookListComponent implements OnInit{
         }
       }
     )
-
   }
 }

@@ -14,10 +14,38 @@ import {MatMenuModule} from "@angular/material/menu";
 import {MatIconModule} from "@angular/material/icon";
 import {MatCardModule} from "@angular/material/card";
 import {MatToolbarModule} from "@angular/material/toolbar";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {MatTabsModule} from "@angular/material/tabs";
+import { AuthorListComponent } from './author-list/author-list.component';
+import { AuthorEditComponent } from './author-edit/author-edit.component';
+import { ResourceTabsComponent } from './resource-tabs/resource-tabs.component';
 
 
 @NgModule({
+  declarations: [
+    BookEditComponent,
+    AdminComponent,
+    BookListComponent,
+    AuthorListComponent,
+    AuthorEditComponent,
+    ResourceTabsComponent
+  ],
+    imports: [
+        CommonModule,
+        RouterModule.forChild(AdminRoutes),
+        MatTableModule,
+        MatButtonModule,
+        MatInputModule,
+        MatProgressSpinnerModule,
+        MatSortModule,
+        MatMenuModule,
+        MatIconModule,
+        MatCardModule,
+        MatToolbarModule,
+        FormsModule,
+        MatTabsModule,
+        ReactiveFormsModule
+    ]
     declarations: [
         BookEditComponent,
         AdminComponent,

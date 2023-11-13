@@ -1,0 +1,22 @@
+.book-list-card{
+  margin: 1%;
+}
+.mat-column-id {
+  max-width: 10%
+}
+
+.mat-column-name {
+  max-width: 50%;
+}
+
+.mat-column-birth {
+  max-width: 15%;
+}
+
+.mat-column-death {
+  max-width: 15%;
+}
+
+.mat-column-buttons {
+  max-width: 10%;
+}

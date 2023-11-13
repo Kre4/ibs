@@ -21,7 +21,7 @@ export class MainPanelComponent implements OnInit, AfterViewInit, OnDestroy{
   }
 
   goToBooks(){
-    this.router.navigate(["/admin/book/list"]);
+    this.router.navigate(["/admin/"]);
   }
 
 }
