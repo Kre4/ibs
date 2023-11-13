@@ -13,6 +13,7 @@ import {MatSortModule} from "@angular/material/sort";
 import {MatMenuModule} from "@angular/material/menu";
 import {MatIconModule} from "@angular/material/icon";
 import {MatCardModule} from "@angular/material/card";
+import {MatToolbarModule} from "@angular/material/toolbar";
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import {MatCardModule} from "@angular/material/card";
     MatSortModule,
     MatMenuModule,
     MatIconModule,
-    MatCardModule
+    MatCardModule,
+    MatToolbarModule
   ]
 })
 export class AdminModule { }

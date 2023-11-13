@@ -24,22 +24,15 @@
 .mat-column-buttons {
   max-width: 10%;
 }
-/*.book-table-id{*/
-/*  max-width: 5%;*/
-/*}*/
 
-/*.book-table-name{*/
-/*  max-width: 30%;*/
-/*}*/
+.id-searching{
+  max-height: 48px;
+  margin: 1%;
+}
 
-/*.book-table-authors{*/
-/*  max-width: 30%;*/
-/*}*/
+.id-searching-button{
+  height: 57px;
+}
 
-/*.book-table-year{*/
-/*  max-width: 20%;*/
-/*}*/
-
-/*.book-table-buttons{*/
-/*  max-width: 5%;*/
-/*}*/
+.id-searching-input{
+}
