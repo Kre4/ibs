@@ -8,6 +8,7 @@ export class BookDatasource extends DataSource<Book>{
   private notifySubject = new BehaviorSubject<Book[]>([]);
   private loadingSubject: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   public loading: Observable<boolean> = this.loadingSubject.asObservable();
+  public dataExist: boolean = false;
 
   constructor(private bookService: BookService) {
     super();
@@ -39,7 +40,10 @@ export class BookDatasource extends DataSource<Book>{
       .pipe(
         catchError(() => of([])),
         finalize(() => this.loadingSubject.next(false))
-      ).subscribe(value => this.notifySubject.next(value))
+      ).subscribe(value => {
+      this.notifySubject.next(value);
+      this.dataExist = true;
+    })
   }
 
 }

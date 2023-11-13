@@ -8,3 +8,23 @@
 .form-size {
   width: 90%;
 }
+
+.book-result-card{
+  margin: 1%;
+}
+
+.mat-column-name {
+  max-width: 35%;
+}
+
+.mat-column-author {
+  max-width: 35%;
+}
+
+.mat-column-year {
+  max-width: 10%;
+}
+
+.mat-column-publisher {
+  max-width: 20%;
+}
