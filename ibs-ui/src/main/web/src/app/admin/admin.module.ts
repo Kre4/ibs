@@ -12,6 +12,7 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import {MatSortModule} from "@angular/material/sort";
 import {MatMenuModule} from "@angular/material/menu";
 import {MatIconModule} from "@angular/material/icon";
+import {MatCardModule} from "@angular/material/card";
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import {MatIconModule} from "@angular/material/icon";
     MatProgressSpinnerModule,
     MatSortModule,
     MatMenuModule,
-    MatIconModule
+    MatIconModule,
+    MatCardModule
   ]
 })
 export class AdminModule { }

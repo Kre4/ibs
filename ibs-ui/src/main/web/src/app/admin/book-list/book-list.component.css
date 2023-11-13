@@ -1,3 +1,45 @@
-.book-table{
-  width: 90%;
+.book-list-card{
+  margin: 1%;
 }
+.mat-column-id {
+  max-width: 10%
+}
+
+.mat-column-name {
+  max-width: 20%;
+}
+
+.mat-column-author {
+  max-width: 30%;
+}
+
+.mat-column-year {
+  max-width: 10%;
+}
+
+.mat-column-publisher {
+  max-width: 20%;
+}
+
+.mat-column-buttons {
+  max-width: 10%;
+}
+/*.book-table-id{*/
+/*  max-width: 5%;*/
+/*}*/
+
+/*.book-table-name{*/
+/*  max-width: 30%;*/
+/*}*/
+
+/*.book-table-authors{*/
+/*  max-width: 30%;*/
+/*}*/
+
+/*.book-table-year{*/
+/*  max-width: 20%;*/
+/*}*/
+
+/*.book-table-buttons{*/
+/*  max-width: 5%;*/
+/*}*/

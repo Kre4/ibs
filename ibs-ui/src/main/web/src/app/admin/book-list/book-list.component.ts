@@ -11,7 +11,7 @@ export class BookListComponent implements OnInit{
 
   datasource: BookDatasource;
 
-  displayedColumns = ["id", "authors", "name", "year", "buttons"];
+  displayedColumns = ["id", "authors", "name", "year", "publisher", "buttons"];
 
   constructor(private bookService: BookService){
     this.datasource = new BookDatasource(this.bookService);
@@ -38,7 +38,6 @@ export class BookListComponent implements OnInit{
 
   private loadData(){
     this.datasource.loadBooks();
-    console.log(this.datasource);
   }
 
   edit(item: any){
