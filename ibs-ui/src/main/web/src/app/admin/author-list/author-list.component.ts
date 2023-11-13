@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthorDatasource} from "./author.datasource";
-import {BookService} from "../../generated";
+import {AuthorService} from "../../generated";
 import {Router} from "@angular/router";
 
 @Component({
@@ -8,32 +8,33 @@ import {Router} from "@angular/router";
   templateUrl: './author-list.component.html',
   styleUrls: ['./author-list.component.css']
 })
-export class AuthorListComponent implements OnInit{
+export class AuthorListComponent implements OnInit {
   datasource: AuthorDatasource;
 
   displayedColumns = ["id", "name", "birth", "death", "buttons"];
 
   searchId = '';
 
-  constructor(private bookService: BookService, //todo
-              private router: Router){
-    this.datasource = new AuthorDatasource(this.bookService); //todo
+  constructor(private authorService: AuthorService,
+              private router: Router) {
+    this.datasource = new AuthorDatasource(this.authorService);
   }
+
   ngOnInit(): void {
     this.datasource.loadAuthors();
   }
 
-  edit(item: any){
+  edit(item: any) {
   }
 
   delete(item: any) {
   }
 
-  add(){
-    this.router.navigate(["/admin/book/new"]);
+  add() {
+    this.router.navigate(["/admin/author/new"]);
   }
 
-  search(){
+  search() {
   }
 
 }

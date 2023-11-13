@@ -25,13 +25,12 @@ export class BookListComponent implements OnInit{
   }
 
   getAuthorsString( authors: Author[] ): any {
-    console.log(authors);
     if (authors.length != null) {
       let str = "";
       authors.forEach(author => {
         str = author.name + ' ' + str;
-        return str;
       })
+      return str;
     } else {
       return "Неизвестен"
     }
