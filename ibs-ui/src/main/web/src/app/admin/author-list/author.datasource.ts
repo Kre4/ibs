@@ -1,18 +1,15 @@
 import {CollectionViewer, DataSource} from "@angular/cdk/collections";
-import {Book, BookService} from "../../generated";
+import {Author, Book, BookService} from "../../generated";
 import {BehaviorSubject, catchError, finalize, Observable, of} from "rxjs";
 
-export class BookDatasource extends DataSource<Book>{
-
-
-  private notifySubject = new BehaviorSubject<Book[]>([]);
+export class AuthorDatasource extends DataSource<Book> {
+  private notifySubject = new BehaviorSubject<Author[]>([]);
   private loadingSubject: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   public loading: Observable<boolean> = this.loadingSubject.asObservable();
-
-  constructor(private bookService: BookService) {
+  constructor(private authorService: BookService) { //todo
     super();
   }
-  connect(collectionViewer: CollectionViewer): Observable<Book[]> {
+  connect(collectionViewer: CollectionViewer): Observable<Author[]> {
     return this.notifySubject.asObservable();
   }
 
@@ -21,16 +18,16 @@ export class BookDatasource extends DataSource<Book>{
     this.loadingSubject.complete();
   }
 
-  loadBooks(){
+  loadAuthors(){
     this.loadingSubject.next(true);
-    this.bookService.findAll()
+    this.authorService.findAll() //todo
       .pipe(
         catchError(() => of([])),
         finalize(() => this.loadingSubject.next(false))
       )
       .subscribe(value => {
-      this.notifySubject.next(value);
-    })
+        this.notifySubject.next(value);
+      })
   }
 
 }

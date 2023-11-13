@@ -15,13 +15,18 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatCardModule} from "@angular/material/card";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {FormsModule} from "@angular/forms";
+import {MatTabsModule} from "@angular/material/tabs";
+import { AuthorListComponent } from './author-list/author-list.component';
+import { AuthorEditComponent } from './author-edit/author-edit.component';
 
 
 @NgModule({
   declarations: [
     BookEditComponent,
     AdminComponent,
-    BookListComponent
+    BookListComponent,
+    AuthorListComponent,
+    AuthorEditComponent
   ],
   imports: [
     CommonModule,
@@ -35,7 +40,8 @@ import {FormsModule} from "@angular/forms";
     MatIconModule,
     MatCardModule,
     MatToolbarModule,
-    FormsModule
+    FormsModule,
+    MatTabsModule
   ]
 })
 export class AdminModule { }
