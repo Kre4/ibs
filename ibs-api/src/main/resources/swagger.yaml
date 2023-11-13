@@ -6,9 +6,22 @@ tags:
   - name: test
     description: test
 
+servers:
+  - url: /api/rest
+
 paths:
   /test/test:
     $ref: "./paths/testTest.yaml"
 
-servers:
-  - url: /api/rest
+  /book/{id}:
+    $ref: "./paths/book/getBookById.yaml"
+  /book/list:
+    $ref: "./paths/book/findAll.yaml"
+  /book/save:
+    $ref: "./paths/book/saveBook.yaml"
+  /book/delete:
+    $ref: "./paths/book/deleteBook.yaml"
+  /book/list/search:
+    $ref: "./paths/book/findBooksBySearch.yaml"
+
+

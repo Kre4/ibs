@@ -1,0 +1,15 @@
+get:
+  tags:
+    - book
+  summary: Получение книги
+  description: Получение книги
+  operationId: getBook
+  parameters:
+    - $ref: '../../parameters/EntityIdPath.yaml'
+  responses:
+    "200":
+      description: Датчик
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/book/Book.yaml"

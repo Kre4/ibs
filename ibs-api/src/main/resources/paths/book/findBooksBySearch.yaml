@@ -1,0 +1,21 @@
+get:
+  tags:
+    - book
+  summary: Получение списка всех книг
+  description: Получение списка всех книг
+  operationId: findBooksBySearch
+  parameters:
+    - name: search
+      in: query
+      description: строка поиска
+      schema:
+        type: string
+  responses:
+    200:
+      description: Список книг удовлевторяющих условию поиска
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: "../../schemas/book/Book.yaml"

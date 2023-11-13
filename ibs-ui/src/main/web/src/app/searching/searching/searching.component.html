@@ -1,0 +1,12 @@
+<div class="searching-form">
+  <form class="searching-form">
+    <mat-form-field class="form-size" appearance="outline">
+      <span matPrefix> </span>
+      <input type="tel" matInput placeholder="Введите название книги или автора" name="search" [(ngModel)]="search">
+      <button matSuffix mat-button (click)="find()">
+        <mat-icon>search</mat-icon>
+      </button>
+    </mat-form-field>
+    <br/>
+  </form>
+</div>

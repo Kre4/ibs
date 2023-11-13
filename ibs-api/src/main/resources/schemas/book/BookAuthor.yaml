@@ -1,0 +1,8 @@
+type: object
+properties:
+  id:
+    type: integer
+  book:
+    $ref: "./Book.yaml"
+  author:
+    $ref: "../author/Author.yaml"

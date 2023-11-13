@@ -1,0 +1,11 @@
+post:
+  tags:
+    - book
+  summary: Удаление книги
+  description: Удаление книги
+  operationId: deleteBook
+  parameters:
+    - $ref: '../../parameters/EntityIdPath.yaml'
+  responses:
+    "200":
+      description: Удалено
