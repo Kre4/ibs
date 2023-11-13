@@ -29,7 +29,6 @@ export class BookDatasource extends DataSource<Book>{
         finalize(() => this.loadingSubject.next(false))
       )
       .subscribe(value => {
-        console.log(value)
       this.notifySubject.next(value);
     })
   }
