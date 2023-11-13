@@ -1,1 +1,43 @@
-<p>author-edit works!</p>
+<div class="spinner-container" *ngIf="loading | async">
+  <mat-spinner></mat-spinner>
+</div>
+
+<mat-card class="content-card">
+  <mat-card-title class="edit-title"> Добавление нового автора</mat-card-title>
+  <div>
+    <form [formGroup]="formGroup" class="display-form">
+      <mat-form-field *ngIf="authorId">
+        <input type="number" matInput formControlName="id" placeholder="ID" readonly>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput formControlName="name" placeholder="Имя">
+      </mat-form-field>
+
+      <mat-form-field >
+        <input matInput [matDatepicker]="picker" appMaskDate
+               formControlName="birthDate" placeholder="Дата рождения">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput [matDatepicker]="picker2" appMaskDate
+               formControlName="deathDate" placeholder="Дата смерти">
+        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+        <mat-datepicker #picker2></mat-datepicker>
+      </mat-form-field>
+
+    </form>
+  </div>
+  <div class="btn-toolbar justify-content-sm-between edit-toolbar" role="toolbar">
+    <button mat-raised-button class="btn btn-sm btn-success" type="button"
+            (click)="back()">Назад
+    </button>
+
+    <button mat-raised-button class="btn btn-sm btn-primary" [disabled]="!formGroup.valid"
+            (click)="save(formGroup.value)">Сохранить
+    </button>
+  </div>
+</mat-card>
+
