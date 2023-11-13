@@ -1,5 +1,5 @@
 <mat-toolbar>
-  <button mat-icon-button>
+  <button mat-icon-button (click)="goToMain()">
     <img class="img" src="/assets/book4.png"/>
   </button>
   <span>БибОС</span>
@@ -12,7 +12,7 @@
   </button>
 </mat-toolbar>
 <mat-menu #admin="matMenu">
-  <button mat-menu-item (click)="goToBooks()">
+  <button mat-menu-item (click)="goToRecourse()">
     <mat-icon>bookmark</mat-icon>
     <span>Ресурсы</span>
   </button>

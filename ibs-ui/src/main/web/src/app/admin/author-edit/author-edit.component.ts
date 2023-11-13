@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {BehaviorSubject} from "rxjs";
-import {Author, AuthorService, BookService} from "../../generated";
+import {Author, AuthorService} from "../../generated";
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {ActivatedRoute, Router} from "@angular/router";
 
@@ -48,7 +48,9 @@ export class AuthorEditComponent implements OnInit{
     })
 
   }
-  back(){}
+  back(){
+    this.router.navigate(["/admin/"]);
+  }
 
   save(value: any){
     let saveObj: Author = {};
