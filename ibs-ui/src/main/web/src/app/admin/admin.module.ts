@@ -19,6 +19,7 @@ import {MatTabsModule} from "@angular/material/tabs";
 import {AuthorListComponent} from './author-list/author-list.component';
 import {AuthorEditComponent} from './author-edit/author-edit.component';
 import {ResourceTabsComponent} from './resource-tabs/resource-tabs.component';
+import {MatDatepickerModule} from "@angular/material/datepicker";
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import {ResourceTabsComponent} from './resource-tabs/resource-tabs.component';
     MatToolbarModule,
     FormsModule,
     MatTabsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatDatepickerModule
   ],
   exports: [
     BookListComponent

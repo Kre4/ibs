@@ -16,6 +16,7 @@ import {MatInputModule} from "@angular/material/input";
 import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {MatMenuModule} from "@angular/material/menu";
+import {MatNativeDateModule} from "@angular/material/core";
 
 @NgModule({
   exports: [],
@@ -30,7 +31,8 @@ import {MatMenuModule} from "@angular/material/menu";
     MatInputModule,
     FormsModule,
     RouterOutlet,
-    MatMenuModule
+    MatMenuModule,
+    MatNativeDateModule
   ],
   declarations: [
     MainPanelComponent,
