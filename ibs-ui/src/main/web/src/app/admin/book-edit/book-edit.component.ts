@@ -25,7 +25,6 @@ export class BookEditComponent implements OnInit{
 
   }
   ngOnInit(): void {
-    console.log("book edit");
     this.bookId = Number(this.route.snapshot.paramMap.get('id'));
     if (this.bookId){
       this.loadData()
@@ -44,11 +43,11 @@ export class BookEditComponent implements OnInit{
   }
   builtFrom(){
     this.formGroup = this.formBuilder.group({
-      id: [this.book.id],
-      name: [this.book.name],
-      year: [this.book.year],
-      description: [this.book.description],
-      publisher: this.book.publisher
+      id: [this.book?.id],
+      name: [this.book?.name],
+      year: [this.book?.year],
+      description: [this.book?.description],
+      publisher: [this.book?.publisher]
       // todo add authors, genre, copies
     })
 

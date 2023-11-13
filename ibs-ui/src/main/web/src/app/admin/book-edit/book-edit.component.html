@@ -1,7 +1,8 @@
 <div class="spinner-container" *ngIf="loading | async">
   <mat-spinner></mat-spinner>
 </div>
-<mat-card>
+
+<mat-card class="book-edit-card">
   <form autocomplete="off" *ngIf="formGroup" [formGroup]="formGroup" novalidate>
     <mat-form-field *ngIf="book.id">
       <input type="number" matInput formControlName="id" placeholder="ID" readonly/>
@@ -38,7 +39,8 @@
 
     <div class="btn-toolbar justify-content-sm-between" role="toolbar">
       <div class="btn-group">
-        <button mat-raised-button class="btn btn-sm btn-primary" [disabled]="!formGroup.valid" (click)="save(formGroup.value)">Сохранить
+        <button mat-raised-button class="btn btn-sm btn-primary" [disabled]="!formGroup.valid"
+                (click)="save(formGroup.value)">Сохранить
         </button>
       </div>
       <div class="btn-group">
