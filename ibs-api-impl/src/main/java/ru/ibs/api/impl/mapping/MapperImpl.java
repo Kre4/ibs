@@ -8,6 +8,8 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
+import ru.ibs.api.impl.mapping.mapper.AuthorEntityToAuthorMapper;
+import ru.ibs.api.impl.mapping.mapper.BookEntityToBookMapper;
 
 import javax.annotation.PostConstruct;
 import java.lang.reflect.Type;
@@ -34,6 +36,10 @@ public class MapperImpl implements Mapper {
     @PostConstruct
     public void init() {
         modelMapper = new ModelMapper();
+
+        modelMapper.addMappings(new BookEntityToBookMapper());
+        modelMapper.addMappings(new AuthorEntityToAuthorMapper());
+        modelMapper.getConfiguration().setAmbiguityIgnored(true);
     }
 
     @Override

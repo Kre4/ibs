@@ -11,21 +11,24 @@ export class BookListComponent implements OnInit{
 
   datasource: BookDatasource;
 
+  displayedColumns = ["id", "authors", "name", "year", "buttons"];
+
   constructor(private bookService: BookService){
     this.datasource = new BookDatasource(this.bookService);
   }
   ngOnInit(): void {
+    this.loadData();
   }
 
   ngAfterViewInit(): void {
-    this.loadData();
+
   }
 
   getAuthorsString( authors: Author[] ): any {
     if (authors.length != null) {
       let str = "";
       authors.forEach(author => {
-        str = str + ', ';
+        str = author.name + ' ' + str;
         return str;
       })
     } else {
@@ -35,5 +38,15 @@ export class BookListComponent implements OnInit{
 
   private loadData(){
     this.datasource.loadBooks();
+    console.log(this.datasource);
+  }
+
+  edit(item: any){
+  }
+
+  delete(item: any) {
+  }
+
+  add(){
   }
   }
