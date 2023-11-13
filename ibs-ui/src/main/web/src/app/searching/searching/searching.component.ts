@@ -16,7 +16,8 @@ export class SearchingComponent implements OnInit{
   }
 
   find(){
-    this.bookService.findBooksBySearch(this.search);
+    this.bookService.findBooksBySearch(this.search)
+      .subscribe(data => {console.log(this.search)});
       //.pipe() TODO add loading animation
     //this.bookService.find();
   }
