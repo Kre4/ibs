@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Author, BookService} from "../../generated";
+import {Author, BookService, Dictionary} from "../../generated";
 import {BookDatasource} from "../../admin/book-list/book.datasource";
 
 @Component({
@@ -13,7 +13,7 @@ export class SearchingComponent implements OnInit {
 
   dataSource: BookDatasource;
 
-  displayedColumns = ["authors", "name", "year", "publisher"];
+  displayedColumns = ["authors", "name", "genre","year", "publisher"];
 
   constructor(private bookService: BookService) {
     this.dataSource = new BookDatasource(this.bookService);
@@ -33,15 +33,26 @@ export class SearchingComponent implements OnInit {
   }
 
   getAuthorsString(authors: Author[]): any {
-    console.log(authors)
-    if (authors) {
+    if (authors && authors.length > 0) {
       let str = "";
       authors.forEach(author => {
-        str += author.name + ' ' + str;
+        str += author.name + ', ';
       });
-      return str;
+      return str.slice(0, -2);
     } else {
       return "Неизвестен"
+    }
+  }
+
+  getGenreString(genres: Dictionary[]): string {
+    if (genres && genres.length > 0) {
+      let str = "";
+      genres.forEach(genre => {
+        str += genre.name + ', ';
+      });
+      return str.slice(0, -2);
+    } else {
+      return "Не указан"
     }
   }
 

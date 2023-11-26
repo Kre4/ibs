@@ -21,6 +21,8 @@ import {AuthorEditComponent} from './author-edit/author-edit.component';
 import {ResourceTabsComponent} from './resource-tabs/resource-tabs.component';
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatSelectModule} from "@angular/material/select";
+import { GenreListComponent } from './genre-list/genre-list.component';
+import { GenreEditComponent } from './genre-edit/genre-edit.component';
 
 
 @NgModule({
@@ -31,6 +33,8 @@ import {MatSelectModule} from "@angular/material/select";
     AuthorListComponent,
     AuthorEditComponent,
     ResourceTabsComponent,
+    GenreListComponent,
+    GenreEditComponent,
   ],
     imports: [
         CommonModule,

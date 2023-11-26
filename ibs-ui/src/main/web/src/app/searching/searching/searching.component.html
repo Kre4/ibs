@@ -36,6 +36,11 @@
       <mat-cell *matCellDef="let book">{{getAuthorsString(book.authors)}}</mat-cell>
     </ng-container>
 
+    <ng-container matColumnDef="genre">
+      <mat-header-cell *matHeaderCellDef>Жанр</mat-header-cell>
+      <mat-cell *matCellDef="let book">{{getGenreString(book.genreList)}}</mat-cell>
+    </ng-container>
+
     <ng-container matColumnDef="year">
       <mat-header-cell *matHeaderCellDef>Год</mat-header-cell>
       <mat-cell *matCellDef="let book">{{book.year}}</mat-cell>

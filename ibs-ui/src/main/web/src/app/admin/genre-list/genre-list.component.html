@@ -1,0 +1,57 @@
+
+<div class="spinner-container" *ngIf="datasource.loading | async">
+  <mat-spinner></mat-spinner>
+</div>
+
+<mat-card class="genre-list-card">
+  <mat-table class="lessons-table" multiTemplateDataRows [dataSource]="datasource"
+             matSort matSortActive="id"
+             matSortDirection="asc"
+             matSortDisableClear>
+
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
+      <mat-cell *matCellDef="let genre">{{genre.id}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef>Имя</mat-header-cell>
+      <mat-cell *matCellDef="let genre">{{genre.name}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="buttons">
+      <mat-header-cell *matHeaderCellDef>
+        <button mat-icon-button
+                title="Добавить" (click)="add()" >
+          <i class="material-icons">add</i>
+        </button>
+      </mat-header-cell>
+      <mat-cell *matCellDef="let genre">
+        <button mat-icon-button
+                [matMenuTriggerFor]="menu"
+                [matMenuTriggerData]="{genre: genre}"
+                title="Действия">
+          <i class="material-icons">more_vert</i>
+        </button>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+
+  </mat-table>
+</mat-card>
+
+
+<mat-menu #menu="matMenu">
+  <ng-template matMenuContent let-aliasMenuItem="genre">
+    <button mat-menu-item (click)="edit(aliasMenuItem)">
+      <mat-icon>edit</mat-icon>
+      <span>Редактировать</span>
+    </button>
+    <button mat-menu-item (click)="delete(aliasMenuItem)">
+      <mat-icon>delete</mat-icon>
+      <span>Удалить</span>
+    </button>
+  </ng-template>
+</mat-menu>

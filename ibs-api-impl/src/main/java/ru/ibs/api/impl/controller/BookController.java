@@ -58,26 +58,6 @@ public class BookController implements BookApi {
     @Override
     @Transactional
     public ResponseEntity<Book> saveBook(Book book) {
-//        ru.ibs.entity.book.Book bookEntity = null;
-//        if (book.getId() != null) {
-//            ru.ibs.entity.book.Book prev = bookService.findById(book.getId()).orElseThrow();
-//            mapper.map(book, prev);
-//            prev.getAuthors().clear();
-////            prev.getBookCopies().clear();
-////            prev.getGenreList().clear();
-//            book.getAuthors().forEach(authorId -> {
-//                Author author = authorService.findById(authorId.getId()).orElseThrow();
-//                prev.getAuthors().add(BookAuthor.builder().author(author).book(prev).build());
-//            });
-//            bookEntity = bookService.save(prev);
-//        } else {
-//            bookEntity = mapper.map(book, ru.ibs.entity.book.Book.class);
-//            bookEntity = bookService.save(mapper.map(book, Book))
-//        }
-//
-//        return ResponseEntity.ok(mapper.map(
-//                bookEntity,
-//                Book.class));
         return ResponseEntity.ok(mapper.map(bookSaveService.saveBook(book), Book.class));
     }
 }

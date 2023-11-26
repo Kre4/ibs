@@ -1,6 +1,6 @@
 get:
   tags:
-    - author
+    - genre
   summary: Получение списка всех жанров
   description: Получение списка всех жанров
   operationId: findAll

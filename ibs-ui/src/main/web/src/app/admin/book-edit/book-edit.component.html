@@ -40,6 +40,14 @@
         </mat-select>
       </mat-form-field>
 
+      <mat-form-field>
+        <mat-label>Жанры</mat-label>
+        <mat-select formControlName="genreList" multiple>
+          <mat-option *ngFor="let genre of genres"
+                      [value]="genre.id">{{genre.name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
     </form>
   </div>
 
