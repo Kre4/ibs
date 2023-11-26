@@ -8,27 +8,36 @@
   <div>
     <form [formGroup]="formGroup" class="display-form">
       <mat-form-field *ngIf="bookId">
+        <mat-label>Идентификатор</mat-label>
         <input type="number" matInput formControlName="id" placeholder="ID" readonly>
       </mat-form-field>
 
       <mat-form-field>
+        <mat-label>Наименование книги</mat-label>
         <input matInput formControlName="name" placeholder="Название">
       </mat-form-field>
 
       <mat-form-field>
+        <mat-label>Год</mat-label>
         <input matInput formControlName="year" placeholder="Год">
       </mat-form-field>
 
       <mat-form-field>
+        <mat-label>Описание</mat-label>
         <textarea matInput formControlName="description" placeholder="Описание"></textarea>
       </mat-form-field>
 
       <mat-form-field>
+        <mat-label>Издатель</mat-label>
         <input matInput formControlName="publisher" placeholder="Издатель">
       </mat-form-field>
 
       <mat-form-field>
-        <input type="number" matInput formControlName="authors" placeholder="ID автора">
+        <mat-label>Авторы</mat-label>
+        <mat-select formControlName="authors" multiple>
+          <mat-option *ngFor="let author of authors"
+                      [value]="author.id">{{author.name}}</mat-option>
+        </mat-select>
       </mat-form-field>
 
     </form>

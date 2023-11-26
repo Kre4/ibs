@@ -20,6 +20,7 @@ import {AuthorListComponent} from './author-list/author-list.component';
 import {AuthorEditComponent} from './author-edit/author-edit.component';
 import {ResourceTabsComponent} from './resource-tabs/resource-tabs.component';
 import {MatDatepickerModule} from "@angular/material/datepicker";
+import {MatSelectModule} from "@angular/material/select";
 
 
 @NgModule({
@@ -31,23 +32,24 @@ import {MatDatepickerModule} from "@angular/material/datepicker";
     AuthorEditComponent,
     ResourceTabsComponent,
   ],
-  imports: [
-    CommonModule,
-    RouterModule.forChild(AdminRoutes),
-    MatTableModule,
-    MatButtonModule,
-    MatInputModule,
-    MatProgressSpinnerModule,
-    MatSortModule,
-    MatMenuModule,
-    MatIconModule,
-    MatCardModule,
-    MatToolbarModule,
-    FormsModule,
-    MatTabsModule,
-    ReactiveFormsModule,
-    MatDatepickerModule
-  ],
+    imports: [
+        CommonModule,
+        RouterModule.forChild(AdminRoutes),
+        MatTableModule,
+        MatButtonModule,
+        MatInputModule,
+        MatProgressSpinnerModule,
+        MatSortModule,
+        MatMenuModule,
+        MatIconModule,
+        MatCardModule,
+        MatToolbarModule,
+        FormsModule,
+        MatTabsModule,
+        ReactiveFormsModule,
+        MatDatepickerModule,
+        MatSelectModule
+    ],
   exports: [
     BookListComponent
   ],
