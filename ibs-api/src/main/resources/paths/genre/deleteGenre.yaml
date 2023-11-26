@@ -1,0 +1,11 @@
+delete:
+  tags:
+    - genre
+  summary: Удаление жанра
+  description: Удаление жанра
+  operationId: deleteGenre
+  parameters:
+    - $ref: '../../parameters/EntityIdPath.yaml'
+  responses:
+    "200":
+      description: Удалено

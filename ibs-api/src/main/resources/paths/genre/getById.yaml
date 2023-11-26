@@ -1,0 +1,15 @@
+get:
+  tags:
+    - genre
+  summary: Получение жанра
+  description: Получение жанра
+  operationId: getGenre
+  parameters:
+    - $ref: '../../parameters/EntityIdPath.yaml'
+  responses:
+    "200":
+      description: Датчик
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/dictionary/Dictionary.yaml"

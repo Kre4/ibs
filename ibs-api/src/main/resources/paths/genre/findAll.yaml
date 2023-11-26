@@ -1,0 +1,15 @@
+get:
+  tags:
+    - author
+  summary: Получение списка всех жанров
+  description: Получение списка всех жанров
+  operationId: findAll
+  responses:
+    200:
+      description: Список всех жанров
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: "../../schemas/dictionary/Dictionary.yaml"
