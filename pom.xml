@@ -41,7 +41,7 @@
 		<flyway-version>8.4.4</flyway-version>
 		<jackson-datatype-version>2.13.2</jackson-datatype-version>
 		<jackson-datatype-version>2.6.0</jackson-datatype-version>
-
+		<kerberos.extension.version>1.0.1.RELEASE</kerberos.extension.version>
 	</properties>
 
 	<dependencies>
@@ -161,6 +161,16 @@
 				<groupId>com.fasterxml.jackson.datatype</groupId>
 				<artifactId>jackson-datatype-jsr310</artifactId>
 				<version>${jackson-datatype-version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.security.kerberos</groupId>
+				<artifactId>spring-security-kerberos-web</artifactId>
+				<version>${kerberos.extension.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.security.kerberos</groupId>
+				<artifactId>spring-security-kerberos-client</artifactId>
+				<version>${kerberos.extension.version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>

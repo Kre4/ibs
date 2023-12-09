@@ -1,4 +1,4 @@
-package ru.ibs.db.service.app;
+package ru.ibs.app;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
