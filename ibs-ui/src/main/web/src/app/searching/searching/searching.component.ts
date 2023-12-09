@@ -13,7 +13,7 @@ export class SearchingComponent implements OnInit {
 
   dataSource: BookDatasource;
 
-  displayedColumns = ["authors", "name", "genre","year", "publisher"];
+  displayedColumns = ["authors", "name", "genre","year", "publisher", "amount"];
 
   constructor(private bookService: BookService) {
     this.dataSource = new BookDatasource(this.bookService);

@@ -51,6 +51,11 @@
       <mat-cell *matCellDef="let book">{{book.publisher}}</mat-cell>
     </ng-container>
 
+    <ng-container matColumnDef="amount">
+      <mat-header-cell *matHeaderCellDef>В наличии</mat-header-cell>
+      <mat-cell *matCellDef="let book">{{book.copiesAvailable}}</mat-cell>
+    </ng-container>
+
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
 

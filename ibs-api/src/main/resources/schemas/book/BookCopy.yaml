@@ -3,11 +3,14 @@ properties:
   id:
     type: integer
     format: int64
+  systemId:
+    type: string
   book:
     $ref: "../dictionary/dictionary.yaml"
   status:
-    type: string
-    enum:
-      - IN_STOCK
-      - BOOKED
-      - TAKEN
+    $ref: "../dictionary/dictionary.yaml"
+#    type: string
+#    enum:
+#      - IN_STOCK
+#      - BOOKED
+#      - TAKEN

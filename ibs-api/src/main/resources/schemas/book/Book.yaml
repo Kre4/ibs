@@ -23,3 +23,6 @@ properties:
     type: array
     items:
       $ref: "./BookCopy.yaml"
+  copiesAvailable:
+    type: integer
+    format: int64

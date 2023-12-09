@@ -5,7 +5,7 @@ import ru.ibs.entity.Status;
 import ru.ibs.repository.StatusRepository;
 
 @Service
-public class StatusService extends JpaService<Status, Integer> {
+public class StatusService extends JpaService<Status, Long> {
 
     private final StatusRepository repository;
 

@@ -8,11 +8,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import ru.ibs.api.generated.api.BookApi;
 import ru.ibs.api.generated.model.Book;
+import ru.ibs.api.impl.buisness.BookCopiesCounter;
 import ru.ibs.api.impl.buisness.BookSaveService;
 import ru.ibs.api.impl.mapping.Mapper;
 import ru.ibs.db.service.beans.AuthorService;
 import ru.ibs.db.service.beans.book.BookAuthorService;
 import ru.ibs.db.service.beans.book.BookService;
+import ru.ibs.entity.StatusEnum;
 
 import javax.persistence.EntityNotFoundException;
 import java.util.List;
@@ -42,17 +44,21 @@ public class BookController implements BookApi {
 
     @Override
     public ResponseEntity<List<Book>> findAll() {
-        return ResponseEntity.ok(mapper.mapList(bookService.findAll(), Book.class));
+        List<Book> response = mapper.mapList(bookService.findAll(), Book.class);
+        BookCopiesCounter.processAndCount(response);
+        return ResponseEntity.ok(response);
     }
 
     @Override
     public ResponseEntity<List<Book>> findBooksBySearch(String search) {
-        return ResponseEntity.ok(mapper.mapList(bookService.findAllBySearch(search), Book.class));
+        List<Book> response = mapper.mapList(bookService.findAllBySearch(search), Book.class);
+        BookCopiesCounter.processAndCount(response);
+        return ResponseEntity.ok(response);
     }
 
     @Override
     public ResponseEntity<Book> getBook(Long id) {
-        return ResponseEntity.ok(mapper.map(bookService.findById(id).get(), Book.class));
+        return ResponseEntity.ok(mapper.map(bookService.findById(id).orElseThrow(), Book.class));
     }
 
     @Override
