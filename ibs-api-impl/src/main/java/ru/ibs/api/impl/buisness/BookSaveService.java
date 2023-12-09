@@ -89,16 +89,15 @@ public class BookSaveService {
             bookEntity.getBookCopies().clear();
         }
         copyList.forEach(bookCopy -> {
-            BookCopies bookCopyEntity = bookCopyService.findById(bookCopy.getId()).orElseThrow();
             Status status = statusService.findById(bookCopy.getStatus().getId()).orElseThrow();
-            bookEntity.getBookCopies().add(
-                    BookCopies.builder()
-                            .id(bookCopy.getId())
-                            .status(status)
-                            .book(bookEntity)
-                            .systemId(bookCopy.getSystemId())
-                            .build()
-            );
+            BookCopies bookCopyEntity =  BookCopies.builder()
+                    .id(bookCopy.getId())
+                    .status(status)
+                    .book(bookEntity)
+                    .systemId(bookCopy.getSystemId())
+                    .build();
+
+            bookEntity.getBookCopies().add(bookCopyService.save(bookCopyEntity));
         });
     }
 }

@@ -52,7 +52,7 @@ public class BookController implements BookApi {
 
     @Override
     public ResponseEntity<Book> getBook(Long id) {
-        return ResponseEntity.ok(mapper.map(bookService.findById(id).get(), Book.class));
+        return ResponseEntity.ok(mapper.map(bookService.findById(id).orElseThrow(), Book.class));
     }
 
     @Override

@@ -84,21 +84,17 @@ export class BookEditComponent implements OnInit {
       genreList: [this.book?.genreList.map(genre => genre.id), Validators.required],
       copies: this.copies
     })
-
+    this.book.copies.forEach(copy => this.addBookCopy(copy))
   }
 
   addBookCopy(copy) {
+    console.log(copy)
     const row = this.formBuilder.group({
       id: [copy?.id ?? null],
       systemId: [copy?.systemId ?? null, []],
-      status: [copy?.status ?? null, Validators.required],
+      status: [copy?.status.id ?? null, Validators.required],
     });
     this.copies.push(row);
-  }
-
-  getBookCopy(index) {
-    console.log(this.formGroup.controls['copies']['controls'][index].value.id)
-    return this.formGroup.controls['copies']['controls'][index].value
   }
 
   getCopiesCount() {
@@ -110,9 +106,7 @@ export class BookEditComponent implements OnInit {
   }
 
   save(value: any) {
-    console.log(value);
     const saveObj = structuredClone(value);
-    console.log(saveObj);
     saveObj.authors = saveObj.authors.map(author => {
         return {
           id: author
@@ -125,8 +119,6 @@ export class BookEditComponent implements OnInit {
       } as Dictionary
     });
 
-    console.log(saveObj);
-    // saveObj.copies = [];
     saveObj.copies = saveObj.copies.map(copy => {
       return {
         id: copy.id,
