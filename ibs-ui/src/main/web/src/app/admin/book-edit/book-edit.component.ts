@@ -1,8 +1,17 @@
 import {Component, OnInit} from '@angular/core';
 import {BehaviorSubject, finalize, forkJoin} from "rxjs";
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {FormArray, FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ActivatedRoute, Router} from "@angular/router";
-import {Author, AuthorService, Book, BookService, Dictionary, GenreService} from "../../generated";
+import {
+  Author,
+  AuthorService,
+  Book,
+  BookCopy,
+  BookService,
+  BookStatusService,
+  Dictionary,
+  GenreService
+} from "../../generated";
 
 @Component({
   selector: 'app-book-edit',
@@ -19,12 +28,16 @@ export class BookEditComponent implements OnInit {
   formGroup: FormGroup;
   authors: Author[];
   genres: Dictionary[];
+  statuses: Dictionary[];
+
+  copies: FormArray;
 
   constructor(private route: ActivatedRoute,
               private router: Router,
               private authorService: AuthorService,
               private bookService: BookService,
               private genreService: GenreService,
+              private bookStatusService: BookStatusService,
               private formBuilder: FormBuilder) {
 
   }
@@ -43,11 +56,12 @@ export class BookEditComponent implements OnInit {
 
   loadDictionaries() {
     this.loading.next(true);
-    forkJoin([this.authorService.findAll(), this.genreService.findAll()])
+    forkJoin([this.authorService.findAll(), this.genreService.findAll(), this.bookStatusService.findAll()])
       .pipe(finalize(() => this.loading.next(false)))
-      .subscribe(([authors, genres]) => {
+      .subscribe(([authors, genres, statuses]) => {
         this.genres = genres;
         this.authors = authors;
+        this.statuses = statuses;
       });
   }
 
@@ -59,6 +73,7 @@ export class BookEditComponent implements OnInit {
   }
 
   buildFrom() {
+    this.copies = this.formBuilder.array([]);
     this.formGroup = this.formBuilder.group({
       id: [this.book?.id],
       name: [this.book?.name, Validators.required],
@@ -67,9 +82,27 @@ export class BookEditComponent implements OnInit {
       publisher: [this.book?.publisher],
       authors: [this.book?.authors.map(author => author.id), Validators.required],
       genreList: [this.book?.genreList.map(genre => genre.id), Validators.required],
-      // todo add copies
+      copies: this.copies
     })
 
+  }
+
+  addBookCopy(copy) {
+    const row = this.formBuilder.group({
+      id: [copy?.id ?? null],
+      systemId: [copy?.systemId ?? null, []],
+      status: [copy?.status ?? null, Validators.required],
+    });
+    this.copies.push(row);
+  }
+
+  getBookCopy(index) {
+    console.log(this.formGroup.controls['copies']['controls'][index].value.id)
+    return this.formGroup.controls['copies']['controls'][index].value
+  }
+
+  getCopiesCount() {
+    return this.copies.value.length
   }
 
   back() {
@@ -77,7 +110,9 @@ export class BookEditComponent implements OnInit {
   }
 
   save(value: any) {
+    console.log(value);
     const saveObj = structuredClone(value);
+    console.log(saveObj);
     saveObj.authors = saveObj.authors.map(author => {
         return {
           id: author
@@ -89,7 +124,16 @@ export class BookEditComponent implements OnInit {
         id: genre
       } as Dictionary
     });
-    saveObj.copies = [];
+
+    console.log(saveObj);
+    // saveObj.copies = [];
+    saveObj.copies = saveObj.copies.map(copy => {
+      return {
+        id: copy.id,
+        systemId: copy.systemId,
+        status: {id: copy.status}
+      } as BookCopy
+    })
     this.loading.next(true);
     this.bookService.saveBook(saveObj as Book)
       .pipe(finalize(() => this.loading.next(false)))

@@ -1,0 +1,1 @@
+alter table books_copies add column system_id text;

@@ -9,8 +9,10 @@ tags:
     description: API работы с книгами
   - name: author
     description: API работы с авторами
-#  - name: genre
-#    description: API работы с жанрами
+  - name: genre
+    description: API работы с жанрами
+  - name: bookStatus
+    description: API работы со статусами
 
 servers:
   - url: /api/rest
@@ -47,4 +49,7 @@ paths:
     $ref: "./paths/genre/saveGenre.yaml"
   /genre/delete:
     $ref: "./paths/genre/deleteGenre.yaml"
+
+  /bookStatus/list:
+    $ref: "./paths/bookStatus/findAll.yaml"
 

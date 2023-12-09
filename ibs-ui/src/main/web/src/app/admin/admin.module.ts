@@ -23,6 +23,7 @@ import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatSelectModule} from "@angular/material/select";
 import { GenreListComponent } from './genre-list/genre-list.component';
 import { GenreEditComponent } from './genre-edit/genre-edit.component';
+import {MatDividerModule} from "@angular/material/divider";
 
 
 @NgModule({
@@ -52,7 +53,8 @@ import { GenreEditComponent } from './genre-edit/genre-edit.component';
         MatTabsModule,
         ReactiveFormsModule,
         MatDatepickerModule,
-        MatSelectModule
+        MatSelectModule,
+        MatDividerModule
     ],
   exports: [
     BookListComponent

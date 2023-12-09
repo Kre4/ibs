@@ -1,0 +1,15 @@
+get:
+  tags:
+    - bookStatus
+  summary: Получение списка всех статусов
+  description: Получение списка всех статусов
+  operationId: findAll
+  responses:
+    200:
+      description: Список всех статусов
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: "../../schemas/dictionary/Dictionary.yaml"

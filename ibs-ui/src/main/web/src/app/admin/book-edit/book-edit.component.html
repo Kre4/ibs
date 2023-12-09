@@ -48,6 +48,35 @@
         </mat-select>
       </mat-form-field>
 
+      <div>
+        <button mat-raised-button class="btn btn-sm btn-primary copies-container"
+                (click)="addBookCopy(null)">Добавить копию
+        </button>
+        <div class="copies-container"
+             formArrayName="copies" *ngIf="getCopiesCount() > 0">
+          <div *ngFor="let control of formGroup.controls['copies']['controls'];
+                             let i = index">
+            <div [formGroupName]="i" class="book-copy">
+              <mat-form-field>
+                <mat-label>ID</mat-label>
+                <input [readonly]="true" matInput formControlName="id"/>
+              </mat-form-field>
+              <mat-form-field>
+                <mat-label>Системный ID</mat-label>
+                <input matInput formControlName="systemId"/>
+              </mat-form-field>
+              <mat-form-field>
+                <mat-label>Статус</mat-label>
+                <mat-select formControlName="status">
+                  <mat-option *ngFor="let status of statuses"
+                              [value]="status.id">{{status.name}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+              <mat-divider></mat-divider>
+            </div>
+          </div>
+        </div>
+      </div>
     </form>
   </div>
 
