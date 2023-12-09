@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 import ru.ibs.entity.Genre;
 
 @Repository
-public interface GenreRepository extends JpaRepository<Genre, Integer> {
+public interface GenreRepository extends JpaRepository<Genre, Long> {
 }

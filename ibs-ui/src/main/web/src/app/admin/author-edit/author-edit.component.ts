@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {BehaviorSubject} from "rxjs";
 import {Author, AuthorService} from "../../generated";
-import {FormBuilder, FormGroup} from "@angular/forms";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ActivatedRoute, Router} from "@angular/router";
 import * as moment from 'moment';
 
@@ -43,7 +43,7 @@ export class AuthorEditComponent implements OnInit{
   builtFrom(){
     this.formGroup = this.formBuilder.group({
       id: [this.author?.id],
-      name: [this.author?.name],
+      name: [this.author?.name, Validators.required],
       birthDate: [this.author?.birthDate],
       deathDate: [this.author?.deathDate]
     })

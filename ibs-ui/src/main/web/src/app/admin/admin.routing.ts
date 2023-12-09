@@ -3,6 +3,7 @@ import {BookEditComponent} from "./book-edit/book-edit.component";
 import {AdminComponent} from "./admin/admin.component";
 import {AuthorEditComponent} from "./author-edit/author-edit.component";
 import {ResourceTabsComponent} from "./resource-tabs/resource-tabs.component";
+import {GenreEditComponent} from "./genre-edit/genre-edit.component";
 
 export const AdminRoutes: Routes = [
   {
@@ -28,6 +29,16 @@ export const AdminRoutes: Routes = [
       {
         path: 'author/new',
         component: AuthorEditComponent
-      }]
+      },
+      {
+        path: 'genre/new',
+        component: GenreEditComponent
+      },
+      {
+        path: 'genre/edit/:id',
+        component: GenreEditComponent
+      }
+
+      ],
   }
 ]

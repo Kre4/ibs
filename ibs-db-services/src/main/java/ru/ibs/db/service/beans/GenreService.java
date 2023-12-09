@@ -5,7 +5,7 @@ import ru.ibs.entity.Genre;
 import ru.ibs.repository.GenreRepository;
 
 @Service
-public class GenreService extends JpaService<Genre, Integer> {
+public class GenreService extends JpaService<Genre, Long> {
 
     private final GenreRepository repository;
 

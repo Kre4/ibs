@@ -1,0 +1,19 @@
+put:
+  tags:
+    - genre
+  summary: Сохранение жанра
+  description: Сохранение жанра
+  operationId: saveGenre
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: "../../schemas/dictionary/Dictionary.yaml"
+    required: true
+  responses:
+    "200":
+      description: Сохраненный результат
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/dictionary/Dictionary.yaml"

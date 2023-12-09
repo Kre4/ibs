@@ -3,10 +3,10 @@
 </div>
 
 <mat-card class="content-card">
-  <mat-card-title class="edit-title"> Добавление нового автора</mat-card-title>
+  <mat-card-title class="edit-title">{{ genreId ? "Редактирование жанра с id " + genreId : "Добавление нового жанра" }}</mat-card-title>
   <div>
     <form [formGroup]="formGroup" class="display-form">
-      <mat-form-field *ngIf="authorId">
+      <mat-form-field *ngIf="genreId">
         <mat-label>Идентификатор</mat-label>
         <input type="number" matInput formControlName="id" placeholder="ID" readonly>
       </mat-form-field>
@@ -17,21 +17,9 @@
       </mat-form-field>
 
       <mat-form-field>
-        <mat-label>Дата рождения</mat-label>
-        <input matInput [matDatepicker]="picker"
-               formControlName="birthDate" placeholder="Дата рождения">
-        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
+        <mat-label>Системное имя</mat-label>
+        <input matInput formControlName="systemName" placeholder="Системное имя">
       </mat-form-field>
-
-      <mat-form-field>
-        <mat-label>Дата смерти</mat-label>
-        <input matInput [matDatepicker]="picker2"
-               formControlName="deathDate" placeholder="Дата смерти">
-        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
-        <mat-datepicker #picker2></mat-datepicker>
-      </mat-form-field>
-
     </form>
   </div>
   <div class="btn-toolbar justify-content-sm-between edit-toolbar" role="toolbar">

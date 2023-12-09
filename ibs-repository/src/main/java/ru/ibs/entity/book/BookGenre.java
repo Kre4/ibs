@@ -1,9 +1,11 @@
 package ru.ibs.entity.book;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import ru.ibs.entity.Genre;
-import ru.ibs.entity.book.Book;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,6 +19,9 @@ import javax.persistence.Table;
 @Setter
 @Table(name = "book_genre")
 @Entity
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class BookGenre {
 
     @Id

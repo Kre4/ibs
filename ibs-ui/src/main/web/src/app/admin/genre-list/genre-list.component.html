@@ -1,19 +1,9 @@
-<!--<div class="row id-searching">-->
-<!--  <mat-form-field appearance="outline" class="id-searching-input">-->
-<!--    &lt;!&ndash; TODO запретить ввод запятых/точек   /&ndash;&gt;-->
-<!--    <input type="number" autocomplete="off" matInput placeholder="Поиск по ID" #input [ngModel]="searchId">-->
-<!--  </mat-form-field>-->
-<!--  <button mat-flat-button class="btn btn-sm btn-outline-secondary button-clear id-searching-button"-->
-<!--          (click)="search()">-->
-<!--    Поиск-->
-<!--  </button>-->
-<!--</div>-->
 
 <div class="spinner-container" *ngIf="datasource.loading | async">
   <mat-spinner></mat-spinner>
 </div>
 
-<mat-card class="author-list-card">
+<mat-card class="genre-list-card">
   <mat-table class="lessons-table" multiTemplateDataRows [dataSource]="datasource"
              matSort matSortActive="id"
              matSortDirection="asc"
@@ -21,22 +11,12 @@
 
     <ng-container matColumnDef="id">
       <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
-      <mat-cell *matCellDef="let author">{{author.id}}</mat-cell>
+      <mat-cell *matCellDef="let genre">{{genre.id}}</mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="name">
       <mat-header-cell *matHeaderCellDef>Имя</mat-header-cell>
-      <mat-cell *matCellDef="let author">{{author.name}}</mat-cell>
-    </ng-container>
-
-    <ng-container matColumnDef="birth">
-      <mat-header-cell *matHeaderCellDef>Дата рождения</mat-header-cell>
-      <mat-cell *matCellDef="let author">{{author.birthDate}}</mat-cell>
-    </ng-container>
-
-    <ng-container matColumnDef="death">
-      <mat-header-cell *matHeaderCellDef>Дата смерти</mat-header-cell>
-      <mat-cell *matCellDef="let author">{{author.deathDate}}</mat-cell>
+      <mat-cell *matCellDef="let genre">{{genre.name}}</mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="buttons">
@@ -46,10 +26,10 @@
           <i class="material-icons">add</i>
         </button>
       </mat-header-cell>
-      <mat-cell *matCellDef="let author">
+      <mat-cell *matCellDef="let genre">
         <button mat-icon-button
                 [matMenuTriggerFor]="menu"
-                [matMenuTriggerData]="{author: author}"
+                [matMenuTriggerData]="{genre: genre}"
                 title="Действия">
           <i class="material-icons">more_vert</i>
         </button>
@@ -64,7 +44,7 @@
 
 
 <mat-menu #menu="matMenu">
-  <ng-template matMenuContent let-aliasMenuItem="author">
+  <ng-template matMenuContent let-aliasMenuItem="genre">
     <button mat-menu-item (click)="edit(aliasMenuItem)">
       <mat-icon>edit</mat-icon>
       <span>Редактировать</span>

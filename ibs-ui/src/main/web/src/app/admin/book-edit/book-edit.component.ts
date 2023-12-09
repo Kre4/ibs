@@ -1,16 +1,15 @@
 import {Component, OnInit} from '@angular/core';
- import {BehaviorSubject, finalize} from "rxjs";
-import {FormBuilder, FormGroup} from "@angular/forms";
+import {BehaviorSubject, finalize, forkJoin} from "rxjs";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ActivatedRoute, Router} from "@angular/router";
-import {AuthorService, Book, BookService} from "../../generated";
-import {getTreeNoValidDataSourceError} from "@angular/cdk/tree";
+import {Author, AuthorService, Book, BookService, Dictionary, GenreService} from "../../generated";
 
 @Component({
   selector: 'app-book-edit',
   templateUrl: './book-edit.component.html',
   styleUrls: ['./book-edit.component.css']
 })
-export class BookEditComponent implements OnInit{
+export class BookEditComponent implements OnInit {
   loading: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
   bookId: number;
@@ -18,53 +17,78 @@ export class BookEditComponent implements OnInit{
   book: Book;
 
   formGroup: FormGroup;
+  authors: Author[];
+  genres: Dictionary[];
 
   constructor(private route: ActivatedRoute,
               private router: Router,
               private authorService: AuthorService,
               private bookService: BookService,
+              private genreService: GenreService,
               private formBuilder: FormBuilder) {
 
   }
+
   ngOnInit(): void {
     this.bookId = Number(this.route.snapshot.paramMap.get('id'));
-    if (this.bookId){
+    this.loadDictionaries();
+    if (this.bookId) {
       this.loadData()
     } else {
-      this.builtFrom();
+      this.buildFrom();
     }
 
-    this.builtFrom();
+    this.buildFrom();
   }
 
-  loadData(){
+  loadDictionaries() {
+    this.loading.next(true);
+    forkJoin([this.authorService.findAll(), this.genreService.findAll()])
+      .pipe(finalize(() => this.loading.next(false)))
+      .subscribe(([authors, genres]) => {
+        this.genres = genres;
+        this.authors = authors;
+      });
+  }
+
+  loadData() {
     this.bookService.getBook(this.bookId).subscribe(value => {
       this.book = value;
-      console.log(value);
-      this.builtFrom();
+      this.buildFrom();
     });
   }
-  builtFrom(){
+
+  buildFrom() {
     this.formGroup = this.formBuilder.group({
       id: [this.book?.id],
-      name: [this.book?.name],
-      year: [this.book?.year],
+      name: [this.book?.name, Validators.required],
+      year: [this.book?.year, Validators.required],
       description: [this.book?.description],
       publisher: [this.book?.publisher],
-      authors: [this.book?.authors ? this.book?.authors[0].id : 0]
-      // todo add authors, genre, copies
+      authors: [this.book?.authors.map(author => author.id), Validators.required],
+      genreList: [this.book?.genreList.map(genre => genre.id), Validators.required],
+      // todo add copies
     })
 
   }
-  back(){
+
+  back() {
     this.router.navigate(["/admin/"]);
   }
 
-  save(value: any){
+  save(value: any) {
     const saveObj = structuredClone(value);
-
-    saveObj.authors = [{id: saveObj.authors}];
-    saveObj.genreList = [];
+    saveObj.authors = saveObj.authors.map(author => {
+        return {
+          id: author
+        } as Author
+      }
+    );
+    saveObj.genreList = saveObj.genreList.map(genre => {
+      return {
+        id: genre
+      } as Dictionary
+    });
     saveObj.copies = [];
     this.loading.next(true);
     this.bookService.saveBook(saveObj as Book)
