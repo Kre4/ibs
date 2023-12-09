@@ -23,3 +23,4 @@ public class Status {
 
     private String systemName;
 }
+
